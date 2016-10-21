@@ -1,14 +1,37 @@
-## angular2-seed
+# Easy form-e
 
-A simple starter project demonstrating the basic concepts of Angular 2.
+[![Travis Build Status](https://travis-ci.org/jshacks/boilerplate.svg?branch=master)](https://travis-ci.org/jshacks/boilerplate)
+[![devDependency Status](https://david-dm.org/jshacks/boilerplate/dev-status.svg)](https://david-dm.org/jshacks/boilerplate?type=dev)
+[![Join the Electron Community on Slack](http://159.203.166.178/badge.svg)](http://159.203.166.178)
 
 
-### Usage
-- Clone or fork this repository
-- Make sure you have [node.js](https://nodejs.org/) installed version 5+
-- Make sure you have NPM installed version 3+
-- `WINDOWS ONLY` run `npm install -g webpack webpack-dev-server typescript` to install global dependencies
-- run `npm install` to install dependencies
-- run `npm start` to fire up dev server
-- open browser to [`http://localhost:3000`](http://localhost:3000)
-- if you want to use other port, open `package.json` file, then change port in `--port 3000` script
+Follow [@incremental_com](https://twitter.com/incremental_com) and [@JS_Hacks](https://twitter.com/js_hacks) on Twitter for important
+announcements.
+
+This project adheres to the Contributor Covenant [code of conduct](CODE_OF_CONDUCT.md).
+By participating, you are expected to uphold this code. Please report unacceptable
+behavior to hello@incremental.community or contact@jshacks.io.
+
+
+## Documentation
+
+
+## Quick Start
+
+
+## Community
+
+Incremental Community in collaboration with JsHacks
+
+You can ask questions and interact with the community in the following
+locations:
+- [`Incremental Community`](http://incremental.community/) channel on Slack
+- [`jshacks`](http://159.203.166.178) channel on Slack
+
+
+## Documentation inspiration from
+Electron, Atom, contributor-covenant.org
+
+## License
+
+MIT © 2016
