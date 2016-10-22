@@ -23,7 +23,6 @@ export class Form {
         label: "(suma de control)",
         placeholder: "0"
       }
-
     },
     {
       key: 'numePers',
@@ -31,35 +30,40 @@ export class Form {
       templateOptions: {
         label: "Nume",
         placeholder: ""
-      }},
+      }
+    },
     {
       key: 'initTata',
       type: 'input',
       templateOptions: {
         label: "Initiala tatalui",
         placeholder: ""
-      }},
+      }
+    },
     {
       key: 'prenumePers',
       type: 'input',
       templateOptions: {
         label: "Prenume",
         placeholder: ""
-      }},
+      }
+    },
     {
       key: 'strada',
       type: 'input',
       templateOptions: {
         label: "Strada",
         placeholder: ""
-      }},
+      }
+    },
     {
       key: 'numar',
       type: 'input',
       templateOptions: {
         label: "Numar",
         placeholder: ""
-      }},
+      }
+    },
     {
       key: 'bloc',
       type: 'input',
@@ -67,6 +71,23 @@ export class Form {
         label: "Bloc",
         placeholder: ""
       }
+    },
+    {
+      key: 'scara',
+      type: 'input',
+      templateOptions: {
+        label: "Scara",
+        placeholder: ""
+      }
+    },
+    {
+      key: 'etaj',
+      type: 'input',
+      templateOptions: {
+        label: "Etaj",
+        placeholder: ""
+      }
+      
       
 
     }]
