@@ -84,7 +84,7 @@ import {Component} from '@angular/core';
 
     },
     {
-    template "<div><b> I.DATE DE IDENTIFICARE</b></div>"
+    template: "<div><b> I.DATE DE IDENTIFICARE</b></div>"
     } ,
     {
       key: 'cui',
@@ -141,7 +141,34 @@ import {Component} from '@angular/core';
 
     },
     {
-      template"<div><b>II. REZUMAT DECLARATIE</b></div>
+      template:"<div><b>II. REZUMAT DECLARATIE</b></div>"
+    },
+    {
+      key: 'sumcontrol',
+      type: 'input',
+      templateOptions: {
+        label: "(suma de control)",
+        placeholder: ""
+      }
+
+    },
+    {
+      key: 'nr_pag',
+      type: 'input',
+      templateOptions: {
+        label: "NUMAR TOTAL PAGINI ANEXA LA DECLARATIE",
+        placeholder: "1"
+      }
+
+    },
+    {
+      key: 'nrOPI',
+      type: 'input',
+      templateOptions: {
+        label: "NUMARUL TOTAL AL OPERATORILOR INTRACOMUNITARI",
+        placeholder: ""
+      }
+
     },
     {
       key: 'prenume_declar',
