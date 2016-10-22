@@ -71,6 +71,8 @@ export class Form {
   "banca": "Pusculita"
 }
 
+
+
 achizitiiBunuriTaxabile = [
     {
       "val_valuta": 512,
@@ -321,5 +323,9 @@ postProcess() {
 }
 addAchizitie() {
   this.achizitiiBunuriTaxabile.push({})
+}
+
+sendToServer(){
+  console.log(JSON.stringify(this.user))
 }
 }

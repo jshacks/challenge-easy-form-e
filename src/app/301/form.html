@@ -18,7 +18,9 @@
                 <input type="text" [value]="achizitiiBunuriTaxabile[i].tva" (input)="achizitiiBunuriTaxabile[i].tva = $event.target.value">
 
         </div>
-          <button type="submit" class="btn btn-primary" (click)=addAchizitie() >Add</button>
-                <div>    <button type="submit" class="btn btn-primary" (click)=postProcess() >Generare</button></div>
-
-        {{user|json}}
+          <button type="submit" class="btn btn-primary" (click)="addAchizitie()" >Add</button>
+                <div>    <button type="submit" class="btn btn-primary" (click)="postProcess()" >Generare</button></div>
+        <div>
+                 <button type="submit" class="btn btn-primary" (click)="sendToServer()" >Send</button>
+            </div>
+        <!--{{user|json}}-->
