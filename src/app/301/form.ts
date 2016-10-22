@@ -1,7 +1,7 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup} from "@angular/forms";
 import {FormlyModule, FormlyFieldConfig, FormlyBootstrapModule, Field, FieldWrapper} from '../../formly';
-
+import {Declaratia310Service} from '../services/declaratieService';
 
 @Component({
   selector: 'd301',
@@ -11,6 +11,10 @@ import {FormlyModule, FormlyFieldConfig, FormlyBootstrapModule, Field, FieldWrap
 export class Form {
   form: FormGroup;
   userFields: FormlyFieldConfig[];
+
+  response:string;
+  pdfId:string;
+
   user: any =  {
   "tva5": 0,
   "cif": 34983363,
@@ -99,7 +103,7 @@ achizitiiBunuriTaxabile = [
   ]
   
 
-  constructor(fb: FormBuilder) {
+  constructor(fb: FormBuilder, private dService: Declaratia310Service) {
     this.form = fb.group({});
 
     this.userFields = [{
@@ -319,13 +323,20 @@ postProcess() {
   }
   this.user.nr_evid += control
   
-                    //  10301010516250616000038
+  //  10301010516250616000038
+
+  this.dService.sendData(this.user).then(response => {
+    
+    this.response = JSON.parse(response["_body"]);
+
+    if(this.response['fileId'] != '') {      
+        this.pdfId = this.response['fileId']
+    }
+  })
 }
+
 addAchizitie() {
   this.achizitiiBunuriTaxabile.push({})
 }
 
-sendToServer(){
-  console.log(JSON.stringify(this.user))
-}
 }

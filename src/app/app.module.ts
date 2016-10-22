@@ -14,6 +14,7 @@ import {RepoDetail} from './github/repo-detail/repo-detail';
 import {LocationStrategy, HashLocationStrategy} from '@angular/common';
 import {FormlyModule, FormlyFieldConfig, FormlyBootstrapModule, Field, FieldWrapper} from '../formly';
 
+import {Declaratia310Service} from './services/declaratieService';
 
 import {Form as D112} from './112/form';
 import {Form as D390} from './390/form';
@@ -48,7 +49,7 @@ import {Form as D230} from './230/form';
     FormlyBootstrapModule, 
     RouterModule.forRoot(rootRouterConfig)
     ],
-  providers   : [Github, {provide: LocationStrategy, useClass: HashLocationStrategy}],
+  providers   : [Github, {provide: LocationStrategy, useClass: HashLocationStrategy}, Declaratia310Service],
   bootstrap   : [AppComponent]
 })
 export class AppModule {

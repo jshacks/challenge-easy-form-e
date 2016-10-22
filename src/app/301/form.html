@@ -21,6 +21,9 @@
           <button type="submit" class="btn btn-primary" (click)="addAchizitie()" >Add</button>
                 <div>    <button type="submit" class="btn btn-primary" (click)="postProcess()" >Generare</button></div>
         <div>
-                 <button type="submit" class="btn btn-primary" (click)="sendToServer()" >Send</button>
+                 <a type="submit" *ngIf="pdfId" href="{{dService.theUrl}}/download/{{pdfId}}" class="btn btn-primary" >Download Pdf</a>
             </div>
+
+        {{response | json}}
+
         <!--{{user|json}}-->
