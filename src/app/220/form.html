@@ -1,7 +1,7 @@
-<h3>220</h3>
-<h4>Declaratie privind venitul estimat / norma de venit</h4>
-<div *ngFor="let form of form220">
-    <h5 *ngIf="form.title">{{form.title}}</h5>
-    <formly-form [model]="form.data" [fields]="form.fields"></formly-form>
-    <div>{{form.data|json}}</div>
+<h2>220</h2>
+<h3>Declaratie privind venitul estimat / norma de venit</h3>
+<div>
+    <formly-form [model]="data" [fields]="fields">
+        <button>Trimite</button>
+    </formly-form>
 </div>
