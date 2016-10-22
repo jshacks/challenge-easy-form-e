@@ -146,7 +146,7 @@ import {Component} from '@angular/core';
       template:"<div><b>II. REZUMAT DECLARATIE</b></div>"
     },
     {
-      key: 'sumcontrol',
+      key: 'totalPlata_A',
       type: 'input',
       templateOptions: {
         label: "(suma de control)",
@@ -286,7 +286,7 @@ import {Component} from '@angular/core';
 
     },
     {
-      key: 'cui',
+      key: 'codO',
       type: 'input',
       templateOptions: {
         label: "COD OPERATOR INTRACOMUNITAR",
@@ -295,7 +295,7 @@ import {Component} from '@angular/core';
 
     },
     {
-      key: 'den',
+      key: 'denO',
       type: 'input',
       templateOptions: {
         label: "DENUMIRE/NUME, PRENUME OPERATOR INTRACOMUNITAR",
@@ -304,7 +304,7 @@ import {Component} from '@angular/core';
 
     },
     {
-      key: 'total_baza',
+      key: 'baza',
       type: 'input',
       templateOptions: {
         label: "BAZA IMPOZABILA",
@@ -313,19 +313,28 @@ import {Component} from '@angular/core';
 
     },
     {
-      key: 'totalPlata_A',
+      key: 'total_baza',
       type: 'input',
       templateOptions: {
         label: "TOTAL GENERAL",
         placeholder: ""
       }
-
-    },
-
-
-
+    }
    
     ]
+    var count = 0;
+    for(var i = 0; i < this.user.nrOPI; ++i)
+    {  count++;
+        this.user.nrOPI=count;
+    }
+    var total = 0;
+    for (i=0; i<this.user.bazaL; i++)
+     {
+    total += this.user.bazaL[i];
+    this.user.bazaL=total;
+     }
+
+    this.user.totalPlata_A = +this.user.nrOPI + +this.user.bazaL + +this.user.bazaT + +this.user.bazaA + +this.user.bazaP + +this.user.bazaS;
   }
 
 }
