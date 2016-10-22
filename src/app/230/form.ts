@@ -87,10 +87,27 @@ export class Form {
         label: "Etaj",
         placeholder: ""
       }
-      
+    },
+    {
+      key: 'apar',
+      type: 'input',
+      templateOptions: {
+        label: "Ap.",
+        placeholder: ""
+      }
+    }
+      ,
+    {
+      key: 'judSect',
+      type: 'input',
+      templateOptions: {
+        label: "Judet/Sector",
+        placeholder: ""
+      }
+    }
       
 
-    }]
+    ]
   }
 
 }
