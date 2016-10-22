@@ -105,6 +105,23 @@ export class Form {
         placeholder: ""
       }
     }
+    ,
+    {
+      key: 'local',
+      type: 'input',
+      templateOptions: {
+        label: "Localitate",
+        placeholder: ""
+      }
+    },
+    {
+      key: 'codp',
+      type: 'input',
+      templateOptions: {
+        label: "Cod postal",
+        placeholder: ""
+      }
+    }
       
 
     ]
