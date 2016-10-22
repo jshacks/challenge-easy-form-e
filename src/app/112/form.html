@@ -2,7 +2,7 @@
 <p>Welcome to Angular Seed</p>
 
 <h1>Hello, {{user.nameOfPerson}}!</h1>
-        Say hello to: <input [value]="user.nameOfPerson" (input)="user.nameOfPerson = $event.target.value">
+        Say hello to: <input [value]="user.nameOfPerson" (input)="user.nameOfPerson = $event.target.value" [required]=">
         <formly-form [model]="user" [fields]="userFields"></formly-form>
 
         {{user|json}}
