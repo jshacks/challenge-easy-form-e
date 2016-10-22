@@ -2,6 +2,9 @@
 <h3>Declaratie privind venitul estimat / norma de venit</h3>
 <div>
     <formly-form [model]="data" [fields]="fields">
-        <button>Trimite</button>
+        <button (click)="postProcess()">PostProcess</button>
     </formly-form>
+</div>
+<div>
+    <textarea cols="130" rows="20">{{postData|json}}</textarea>
 </div>
