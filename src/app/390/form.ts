@@ -183,7 +183,7 @@ import {Component} from '@angular/core';
       key: 'bazaL',
       type: 'input',
       templateOptions: {
-        label: "LIVRARI INTRACOMUNITARE DE BUNURI",
+        label: "L-LIVRARI INTRACOMUNITARE DE BUNURI",
         placeholder: ""
       }
 
@@ -192,17 +192,35 @@ import {Component} from '@angular/core';
       key: 'bazaT',
       type: 'input',
       templateOptions: {
-        label: "LIVRARI IN CADRUL UNEI OPERATIUNI TRIUNGHIULARE",
+        label: "T-LIVRARI IN CADRUL UNEI OPERATIUNI TRIUNGHIULARE",
         placeholder: "Ex:Gogu"
       }
 
     },
     {
-      key: 'prenume_declar',
+      key: 'bazaA',
       type: 'input',
       templateOptions: {
-        label: "Prenume",
+        label: "A-ACHIZITII INTRACOMUNITARE DE BUNURI",
         placeholder: "Ex:Gogu"
+      }
+
+    },
+     {
+      key: 'bazaP',
+      type: 'input',
+      templateOptions: {
+        label: "P-PRESTARI INTRACOMUNITARE DE SERVICII",
+        placeholder: ""
+      }
+
+    },
+     {
+      key: 'bazaS',
+      type: 'input',
+      templateOptions: {
+        label: "S-ACHIZITII INTRACOMUNITARE DE SERVICII",
+        placeholder: ""
       }
 
     },
