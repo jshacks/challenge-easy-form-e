@@ -11,7 +11,65 @@ import {FormlyModule, FormlyFieldConfig, FormlyBootstrapModule, Field, FieldWrap
 export class Form {
   form: FormGroup;
   userFields: FormlyFieldConfig[];
-  user: any = {}
+  user: any =  {
+  "tva5": 0,
+  "cif": 34983363,
+  "tva3": 0,
+  "tva4": 0,
+  "tva1": 66,
+  "tva2": 0,
+  "nr_evid": "10301010516250616000038",
+  "functia_declarant": "Administrator",
+  "xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+  "nume_declarant": "Gigi",
+  "luna": 5,
+  "temei": 1,
+  "xmlns": "mfp:anaf:dgti:d301:declaratie:v1",
+  "telefon": "021674873",
+  "totalPlata_A": 3240,
+  "adresa": "Cucuietii din deal",
+  "baza1": 3174.4,
+  "d_rec": 1,
+  "fax": "034573412",
+  "cont": "RO65BTRL00504205W13542XX",
+  "baza4": 0,
+  "baza5": 0,
+  "email": "gogu@example.com",
+  "baza2": 0,
+  "baza3": 0,
+  "childNodes": [
+    {
+      "val_valuta": 512,
+      "data_doc": "22.10.2016",
+      "nr_doc": 22,
+      "tip_valuta": "EUR",
+      "baza": 2304,
+      "tagName": "sectiune",
+      "tip_operatie": 1,
+      "curs_valutar": 4.5,
+      "tva": 23
+    },
+    {
+      "val_valuta": 256,
+      "data_doc": "20.10.2016",
+      "nr_doc": 23,
+      "tip_valuta": "USD",
+      "baza": 870.4,
+      "tagName": "sectiune",
+      "tip_operatie": 1,
+      "curs_valutar": 3.4,
+      "tva": 43
+    }
+  ],
+  "xsi:schemaLocation": "mfp:anaf:dgti:d301:declaratie:v1 D301.xsd",
+  "tagName": "declaratie301",
+  "an": 2016,
+  "pers_inreg": 2,
+  "mijl_trans": 1,
+  "denumire": "Baubau srl",
+  "prenume_declarant": "Becali",
+  "banca": "Pusculita"
+}
 
   constructor(fb: FormBuilder) {
     this.form = fb.group({});
@@ -44,7 +102,7 @@ export class Form {
     },
 
     {
-      key: 'checked2',
+      key: 'mijl_trans',
       type: 'checkbox',
       templateOptions: {
         label: "Declaratie pentru achizitii intracomunitare de mijloace de transport noi",
@@ -74,7 +132,7 @@ export class Form {
       template : "<div><strong> DATELE DE IDENTIFICARE A PERSOANEI IMPOZABILE</div>"
     }, 
     {
-      key: 'codFiscal',
+      key: 'cif',
       type: 'input',
       templateOptions: {
         label: "Cod de indentificare fiscala",
@@ -131,7 +189,7 @@ export class Form {
     },
 
     {
-      key: 'bank',
+      key: 'banca',
       type: 'input',
       templateOptions: {
         label: "Banca",
@@ -185,10 +243,49 @@ export class Form {
       }
       },
        {
-      key: 'function',
+      key: 'functia_declarant',
       type: 'input',
       templateOptions: {
         label: "Functia",
+        placeholder: ""
+      }
+      },
+      {
+        template : "<div><strong> DATE PRIVIND OBLIGATIA DE PLATA </div>"
+      },
+      {
+        template : "<div> Sectiunea 1. Achizitii intracomunitare de bunuri taxabile    -lei </div>"
+      },
+
+       {
+      key: 'docName',
+      type: 'input',
+      templateOptions: {
+        label: "Document Numar",
+        placeholder: ""
+      }
+      },
+        {
+      key: 'docDate',
+      type: 'input',
+      templateOptions: {
+        label: "Document Data",
+        placeholder: ""
+      }
+      },
+        {
+      key: 'docVal',
+      type: 'input',
+      templateOptions: {
+        label: "Valoare in valuta",
+        placeholder: ""
+      }
+      },
+        {
+      key: 'docTypeVal',
+      type: 'input',
+      templateOptions: {
+        label: "Document Numar",
         placeholder: ""
       }
       },
