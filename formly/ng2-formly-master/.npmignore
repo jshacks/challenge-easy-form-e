@@ -1,0 +1,16 @@
+.idea
+.config
+demo
+node_modules
+src
+test
+.editorconfig
+.gitignore
+.npmignore
+.travis.yml
+gulpfile.js
+karma.conf.js
+npm-debug.log
+tsconfig.build.json
+tsconfig.json
+tslint.json
