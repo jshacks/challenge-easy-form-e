@@ -16,7 +16,7 @@ export class Form {
   "cif": 34983363,
   "tva3": 0,
   "tva4": 0,
-  "tva1": 66,
+  "tva1": 0,
   "tva2": 0,
   "nr_evid": "10301010516250616000038",
   "functia_declarant": "Administrator",
@@ -28,7 +28,7 @@ export class Form {
   "telefon": "021674873",
   "totalPlata_A": 3240,
   "adresa": "Cucuietii din deal",
-  "baza1": 3174.4,
+  "baza1": 0,
   "d_rec": 1,
   "fax": "034573412",
   "cont": "RO65BTRL00504205W13542XX",
@@ -65,11 +65,37 @@ export class Form {
   "tagName": "declaratie301",
   "an": 2016,
   "pers_inreg": 2,
-  "mijl_trans": 1,
+  "mijl_trans": 0,
   "denumire": "Baubau srl",
   "prenume_declarant": "Becali",
   "banca": "Pusculita"
 }
+
+achizitiiBunuriTaxabile = [
+    {
+      "val_valuta": 512,
+      "data_doc": "22.10.2016",
+      "nr_doc": 22,
+      "tip_valuta": "EUR",
+      "baza": 2304,
+      "tagName": "sectiune",
+      "tip_operatie": 1,
+      "curs_valutar": 4.5,
+      "tva": 23
+    },
+    {
+      "val_valuta": 256,
+      "data_doc": "20.10.2016",
+      "nr_doc": 23,
+      "tip_valuta": "USD",
+      "baza": 870.4,
+      "tagName": "sectiune",
+      "tip_operatie": 1,
+      "curs_valutar": 3.4,
+      "tva": 43
+    }
+  ]
+  
 
   constructor(fb: FormBuilder) {
     this.form = fb.group({});
@@ -253,64 +279,47 @@ export class Form {
         template : "<div> Sectiunea 1. Achizitii intracomunitare de bunuri taxabile    -lei </div>"
       },
 
-       {
-      key: 'nr_doc',
-      type: 'input',
-      templateOptions: {
-        label: "Document Numar",
-        placeholder: ""
-      }
-      },
-        {
-      key: 'data_doc',
-      type: 'input',
-      templateOptions: {
-        label: "Document Data",
-        placeholder: ""
-      }
-      },
-        {
-      key: 'val_valuta',
-      type: 'input',
-      templateOptions: {
-        label: "Valoare in valuta",
-        placeholder: ""
-      }
-      },
-        {
-      key: 'childNodes[1].tip_valuta',
-      type: 'input',
-      templateOptions: {
-        label: "Tip Valuta",
-        placeholder: ""
-      }
-      },
-        {
-      key: 'changeCourse',
-      type: 'input',
-      templateOptions: {
-        label: "Curs de schimb",
-        placeholder: ""
-      }
-      },
-      {
-      key: 'impbase',
-      type: 'input',
-      templateOptions: {
-        label: "Baza de impozitare",
-        placeholder: ""
-      }
-      },
-      {
-      key: 'tva',
-      type: 'input',
-      templateOptions: {
-        label: "TVA datorat",
-        placeholder: ""
-      }
-      },
+
+
 
 
     ]
+}
+postProcess() {
+  this.user.childNodes=[] 
+  for(let node of this.achizitiiBunuriTaxabile) {
+     node.baza=node.val_valuta*node.curs_valutar
+     this.user.baza1+=node.baza
+     this.user.tva1+=node.tva
+     this.user.childNodes.push(node) 
+  }
+  // computing control sum  
+  this.user.totalPlata_A=this.user.baza1+this.user.tva1
+  this.user.totalPlata_A=Math.round(this.user.totalPlata_A)
+  let next_month = this.user.luna+1
+  if (next_month <10 ) {
+    next_month = '0' + next_month
+  }
+
+  let this_month = this.user.luna
+  if (this_month < 10) {
+    this_month = '0'+ this_month
+  }
+  this.user.nr_evid=`1030101${this_month}${this.user.an % 100}25${next_month}${this.user.an % 100}${this.user.mijl_trans}000`
+  
+  let control = this.user.nr_evid.split('').reduce((sum, character)=> sum += +character, 0)
+  if(control < 10 ) {
+    control = '0' + control
+  } else {
+    if(control > 99) {
+      control = control % 100;
+    }
+  }
+  this.user.nr_evid += control
+  
+                    //  10301010516250616000038
+}
+addAchizitie() {
+  this.achizitiiBunuriTaxabile.push({})
 }
 }
