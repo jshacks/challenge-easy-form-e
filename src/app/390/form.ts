@@ -193,7 +193,7 @@ import {Component} from '@angular/core';
       type: 'input',
       templateOptions: {
         label: "T-LIVRARI IN CADRUL UNEI OPERATIUNI TRIUNGHIULARE",
-        placeholder: "Ex:Gogu"
+        placeholder: ""
       }
 
     },
@@ -202,7 +202,7 @@ import {Component} from '@angular/core';
       type: 'input',
       templateOptions: {
         label: "A-ACHIZITII INTRACOMUNITARE DE BUNURI",
-        placeholder: "Ex:Gogu"
+        placeholder: ""
       }
 
     },
@@ -225,11 +225,22 @@ import {Component} from '@angular/core';
 
     },
     {
+  template: "<div>Sub sanctiunile aplicate faptei de fals in acte publice, declar ca datele inscrise in acest formular sunt corecte si complete</div>"
+    },{
+      key: 'nume_declar',
+      type: 'input',
+      templateOptions: {
+        label: "Numele",
+        placeholder: "Ex:Gogu"
+      }
+
+    },
+    {
       key: 'prenume_declar',
       type: 'input',
       templateOptions: {
-        label: "Prenume",
-        placeholder: "Ex:Gogu"
+        label: "Prenumele",
+        placeholder: ""
       }
 
     },
