@@ -252,6 +252,22 @@ export class Form {
         label: "Denumire entitate nonprofit/unitate de cult",
         placeholder: ""
       }
+    } ,
+    {
+      key: 'cif_entitate',
+      type: 'input',
+      templateOptions: {
+        label: "Cod de identificare fiscala entitate nonprofit/unitate de cult",
+        placeholder: ""
+      }
+    },
+    {
+      key: 'den_i',
+      type: 'input',
+      templateOptions: {
+        label: "Nume,prenume/Denumire",
+        placeholder: ""
+      }
     }
     
     
