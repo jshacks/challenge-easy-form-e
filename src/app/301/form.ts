@@ -103,6 +103,59 @@ export class Form {
       }
     },
 
+    {
+      key: 'phoneNumber',
+      type: 'input',
+      templateOptions: {
+        label: "Telefon",
+        placeholder: ""
+      }
+    },
+
+    {
+      key: 'faxNumber',
+      type: 'input',
+      templateOptions: {
+        label: "Fax",
+        placeholder: ""
+      }
+    },
+
+    {
+      key: 'email',
+      type: 'input',
+      templateOptions: {
+        label: "E-mail",
+        placeholder: ""
+      }
+    },
+
+    {
+      key: 'bank',
+      type: 'input',
+      templateOptions: {
+        label: "Banca",
+        placeholder: ""
+      }
+    },
+
+    {
+      key: 'account',
+      type: 'input',
+      templateOptions: {
+        label: "Cont",
+        placeholder: ""
+      }
+    },
+
+    {
+      key: 'checked4',
+      type: 'checkbox',
+      templateOptions: {
+        label: "Persoane care nu sunt inregistrate in scopuri TVA",
+        placeholder: ""
+      }
+    },
     ]
 }
 }
