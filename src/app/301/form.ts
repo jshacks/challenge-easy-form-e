@@ -156,6 +156,15 @@ export class Form {
         placeholder: ""
       }
     },
+
+    {
+      key: 'checked5',
+      type: 'checkbox',
+      templateOptions: {
+        label: "Persoane care nu sunt inregistrate conform art.317 din Legea nr. 227/2015 privind Codul fiscal, cu modificarile si completarile ulterioare",
+        placeholder: ""
+      }
+    },
     ]
 }
 }
