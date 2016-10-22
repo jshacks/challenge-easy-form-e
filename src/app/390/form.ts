@@ -252,8 +252,29 @@ import {Component} from '@angular/core';
         placeholder: "ex: administrator"
       }
 
-    }
-   ,
+    },
+    {
+      template:"<div><b>Se completeaza de personalul organului fiscal</b></div>"
+    },
+    {
+      key: 'nr_inreg',
+      type: 'input',
+      templateOptions: {
+        label: "Numar inregistrare",
+        placeholder: ""
+      }
+
+    }, 
+    {
+      key: 'data',
+      type: 'input',
+      templateOptions: {
+        label: "Data inregistrarii",
+        placeholder: ""
+      }
+
+    },
+   
     ]
   }
 
