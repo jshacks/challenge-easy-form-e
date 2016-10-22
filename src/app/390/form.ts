@@ -66,7 +66,8 @@ import {Component} from '@angular/core';
         placeholder: ""
       }
 
-    }, {
+    },
+     {
       key: 'an',
       type: 'input',
       templateOptions: {
@@ -74,7 +75,8 @@ import {Component} from '@angular/core';
         placeholder: "2016"
       }
 
-    }, {
+    },
+     {
       key: 'luna',
       type: 'input',
       templateOptions: {
@@ -254,26 +256,74 @@ import {Component} from '@angular/core';
 
     },
     {
-      template:"<div><b>Se completeaza de personalul organului fiscal</b></div>"
+   template:"<div><b>LISTA OPERATIUNILOR INTRACOMUNITARE</B></DIV>"
     },
     {
-      key: 'nr_inreg',
+      key: 'nr_crt',
       type: 'input',
       templateOptions: {
-        label: "Numar inregistrare",
-        placeholder: ""
-      }
-
-    }, 
-    {
-      key: 'data',
-      type: 'input',
-      templateOptions: {
-        label: "Data inregistrarii",
-        placeholder: ""
+        label: "Nr.crt.",
+        placeholder: "1"
       }
 
     },
+    {
+      key: 'tip',
+      type: 'input',
+      templateOptions: {
+        label: "TIP *(L/T/A/P/S)",
+        placeholder: ""
+      }
+
+    },
+    {
+      key: 'tara',
+      type: 'input',
+      templateOptions: {
+        label: "TARA",
+        placeholder: ""
+      }
+
+    },
+    {
+      key: 'cui',
+      type: 'input',
+      templateOptions: {
+        label: "COD OPERATOR INTRACOMUNITAR",
+        placeholder: ""
+      }
+
+    },
+    {
+      key: 'den',
+      type: 'input',
+      templateOptions: {
+        label: "DENUMIRE/NUME, PRENUME OPERATOR INTRACOMUNITAR",
+        placeholder: "Vasile Popescu"
+      }
+
+    },
+    {
+      key: 'total_baza',
+      type: 'input',
+      templateOptions: {
+        label: "BAZA IMPOZABILA",
+        placeholder: ""
+      }
+
+    },
+    {
+      key: 'totalPlata_A',
+      type: 'input',
+      templateOptions: {
+        label: "TOTAL GENERAL",
+        placeholder: ""
+      }
+
+    },
+
+
+
    
     ]
   }
