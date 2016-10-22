@@ -43,13 +43,28 @@ export class Form {
   constructor(fb: FormBuilder) {
     this.form = fb.group({});
 
-    this.userFields = [{
-      key: 'sumCtrl',
+    this.userFields = [
+       {
+      template: "<div><b> CERERE PRIVIND DESTINATIA SUMEI REPREZENTAND PANA LA 2% DIN IMPOZITUL ANUAL PE VENITURILE DIN SALARII SI ASIMILATE SALARIILOR</b></div>"
+    },
+    {
+      key: 'an',
+      type: 'input',
+      templateOptions: {
+        label: "Anul",
+        placeholder: "2016"
+      }
+    },
+      {
+      key: 'totalPlata_A',
       type: 'input',
       templateOptions: {
         label: "(suma de control)",
         placeholder: "0"
       }
+    },
+    {
+      template :"<div><b> 1.DATE DE IDENTIFICARE A CONTRIBUABILULUI</b></div>"
     },
     {
       key: 'nume_c',
@@ -76,7 +91,7 @@ export class Form {
       }
     },
     {
-      key: 'adresa_c',
+      key: 'strada_c',
       type: 'input',
       templateOptions: {
         label: "Strada",
@@ -185,7 +200,10 @@ export class Form {
         placeholder: ""
       }
     }
-    ,
+    , 
+    {
+      template: "<div><b> 1.DESTINATIA SUMEI REPREZENTAND PANA LA 2% DIN IMPOZITUL ANUAL,POTRIVIT ART 57. ALIN.(4) DIN LEGEA NR.571/2003</b></div>"
+    },
     {
       key: 'bifa_bursa',
       type: 'checkbox',
@@ -261,6 +279,9 @@ export class Form {
         placeholder: ""
       }
     },
+     {
+      template :"<div><b> 1.DATE DE IDENTIFICARE A IMPUTERNICITULUI</b></div>"
+    },
     {
       key: 'den_i',
       type: 'input',
@@ -334,7 +355,7 @@ export class Form {
       }
     },
     {
-      key: 'cod postal',
+      key: 'codpI',
       type: 'input',
       templateOptions: {
         label: "Cod postal",
@@ -342,7 +363,7 @@ export class Form {
       }
     },
     {
-      key: 'telI',
+      key: 'telefon_i',
       type: 'input',
       templateOptions: {
         label: "Telefon",
@@ -365,10 +386,42 @@ export class Form {
         placeholder: ""
       }
     }
+
     
       
 
     ]
+  }
+
+  sumaControl() {
+    let adresa = `strada ${this.user.strada_c} nr. ${this.user.numar} bl. ${this.user.bloc} sc. ${this.user.scara} et. ${this.user.etaj} ap. ${this.user.apar} jud. ${this.user.judSect} localit. ${this.user.local} cod postal ${this.user.codp}`;
+    
+    this.user.adresa_c = adresa;
+
+    delete this.user.numar;
+    delete this.user.bloc;
+    delete this.user.scara;
+    delete this.user.etaj;
+    delete this.user.apar;
+    delete this.user.judSect;
+    delete this.user.local;
+    delete this.user.codp;
+
+    let adresa2=`strada ${this.user.strI} nr. ${this.user.nrI} bl. ${this.user.blocI} sc. ${this.user.scaraI}  ap. ${this.user.apI} jud. ${this.user.judsecI} localit. ${this.user.locI} cod postal ${this.user.codpI}`
+
+    this.user.adresa_i = adresa2;
+
+    delete this.user.strI;
+    delete this.user.nrI;
+    delete this.user.blocI;
+    delete this.user.scaraI;
+    delete this.user.apI;
+    delete this.user.judsecI;
+    delete this.user.locI;
+    delete this.user.codpI;
+
+    this.user.totalPlata_A = +this.user.suma_bursa + +this.user.suma_entitate;
+
   }
 
 }
