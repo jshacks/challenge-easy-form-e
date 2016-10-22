@@ -71,6 +71,9 @@ export class Form {
     },
 
     {
+      template : "<div><strong> DATELE DE IDENTIFICARE A PERSOANEI IMPOZABILE</div>"
+    }, 
+    {
       key: 'codFiscal',
       type: 'input',
       templateOptions: {
@@ -85,6 +88,17 @@ export class Form {
       type: 'input',
       templateOptions: {
         label: "Denumire / Nume, Prenume",
+        placeholder: ""
+      }
+    },
+    {
+      template : "<div> Domiciliu fiscal</div>"
+    },
+    {
+      key: 'adress',
+      type: 'input',
+      templateOptions: {
+        label: "Adresa (judet ,localit.,str.,disabled.,scara,ap.,cod postal,sector)",
         placeholder: ""
       }
     },
