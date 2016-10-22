@@ -35,11 +35,29 @@ export class Form {
     },
       
     {
-      key: 'checked',
+      key: 'checked1',
       type: 'checkbox',
       templateOptions: {
         label: "Declaratie rectificativa",
-        placeholder: "Se completeaza cu x in cazul declaratiilor rectificative"
+        placeholder: ""
+      }
+    },
+
+    {
+      key: 'checked2',
+      type: 'checkbox',
+      templateOptions: {
+        label: "Declaratie pentru achizitii intracomunitare de mijloace de transport noi",
+        placeholder: ""
+      }
+    },
+
+    {
+      key: 'checked3',
+      type: 'checkbox',
+      templateOptions: {
+        label: "-articolul 105. (6) litera a) din Legea nr.207/2015 privind Codul de procedura fiscala, cu modificarile si completarile ulterioare",
+        placeholder: ""
       }
     },
     
