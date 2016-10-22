@@ -59,6 +59,31 @@ import {Component} from '@angular/core';
     this.form = fb.group({});
 
     this.userFields = [{
+      key: 'checked',
+      type: 'checkbox',
+      templateOptions: {
+        label: "DECLARATIE RECTIFICATIVA",
+        placeholder: ""
+      }
+
+    }, {
+      key: 'an',
+      type: 'input',
+      templateOptions: {
+        label: "Perioada de Raportare Anul",
+        placeholder: "2016"
+      }
+
+    }, {
+      key: 'luna',
+      type: 'input',
+      templateOptions: {
+        label: "Luna",
+        placeholder: "4"
+      }
+
+    }
+    {
       key: 'prenume_declar',
       type: 'input',
       templateOptions: {
@@ -76,6 +101,7 @@ import {Component} from '@angular/core';
       }
 
     }
+   ,
     ]
   }
 
