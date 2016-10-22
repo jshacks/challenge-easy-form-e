@@ -114,14 +114,14 @@ export class Form {
         key: 'temei',
         templateOptions: {
           options: [{
-             key: 'temei',
+             key: 1,
             value: '-articolul 105. (6) litera a) din Legea nr.207/2015 privind Codul de procedura fiscala, cu modificarile si completarile ulterioare'
           }, {
-             key: 'temei',
+             key: 2,
             value: '-articolul 105. (6) litera b) din Legea nr.207/2015 privind Codul de procedura fiscala, cu modificarile si completarile ulterioare'
           }],
           label: 'Temeiul legal pentru depunerea formularului 301 dupa anularea rezervei verificarii ulterioare:',
-          description: 'Select a title that suits your description'
+        
         }
       },
     
@@ -203,24 +203,22 @@ export class Form {
         placeholder: ""
       }
     },
-
-    {
-      key: 'checked4',
-      type: 'checkbox',
-      templateOptions: {
-        label: "Persoane care nu sunt inregistrate in scopuri TVA",
-        placeholder: ""
-      }
-    },
+{
+        type: 'radio',
+        key: 'pers_inreg',
+        templateOptions: {
+          options: [{
+             key: 1,
+            value: 'Persoane care nu sunt inregistrate in scopuri TVA'
+          }, {
+             key: 2,
+            value: 'Persoane care sunt inregistrate conform art. 317 din Legea nr. 227/2015 privind Codul fiscal, cu modificarile si completarile ulterioare'
+          }],
+          label: '',
+          
+        }
+      },
     
-    {
-      key: 'checked5',
-      type: 'checkbox',
-      templateOptions: {
-        label: "Persoane care nu sunt inregistrate conform art.317 din Legea nr. 227/2015 privind Codul fiscal, cu modificarile si completarile ulterioare",
-        placeholder: ""
-      }
-    },
     {
       template : "<div> Prezenta delcaratie constituie titlul de creanta si produce efecte juridice...</div>"
     },
@@ -256,7 +254,7 @@ export class Form {
       },
 
        {
-      key: 'docName',
+      key: 'nr_doc',
       type: 'input',
       templateOptions: {
         label: "Document Numar",
@@ -264,7 +262,7 @@ export class Form {
       }
       },
         {
-      key: 'docDate',
+      key: 'data_doc',
       type: 'input',
       templateOptions: {
         label: "Document Data",
@@ -272,7 +270,7 @@ export class Form {
       }
       },
         {
-      key: 'docVal',
+      key: 'val_valuta',
       type: 'input',
       templateOptions: {
         label: "Valoare in valuta",
@@ -280,10 +278,34 @@ export class Form {
       }
       },
         {
-      key: 'docTypeVal',
+      key: 'childNodes[1].tip_valuta',
       type: 'input',
       templateOptions: {
-        label: "Document Numar",
+        label: "Tip Valuta",
+        placeholder: ""
+      }
+      },
+        {
+      key: 'changeCourse',
+      type: 'input',
+      templateOptions: {
+        label: "Curs de schimb",
+        placeholder: ""
+      }
+      },
+      {
+      key: 'impbase',
+      type: 'input',
+      templateOptions: {
+        label: "Baza de impozitare",
+        placeholder: ""
+      }
+      },
+      {
+      key: 'tva',
+      type: 'input',
+      templateOptions: {
+        label: "TVA datorat",
         placeholder: ""
       }
       },
