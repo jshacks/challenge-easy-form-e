@@ -84,7 +84,7 @@ export class Form {
 
     },
     {
-      key: 'anul',
+      key: 'an',
       type: 'input',
       templateOptions: {
         label: "anul",
@@ -93,7 +93,7 @@ export class Form {
     },
       
     {
-      key: 'checked1',
+      key: 'd_rec',
       type: 'checkbox',
       templateOptions: {
         label: "Declaratie rectificativa",
@@ -109,24 +109,22 @@ export class Form {
         placeholder: ""
       }
     },
-
-    {
-      key: 'checked3',
-      type: 'checkbox',
-      templateOptions: {
-        label: "-articolul 105. (6) litera a) din Legea nr.207/2015 privind Codul de procedura fiscala, cu modificarile si completarile ulterioare",
-        placeholder: ""
-      }
-    },
+{
+        type: 'radio',
+        key: 'temei',
+        templateOptions: {
+          options: [{
+             key: 'temei',
+            value: '-articolul 105. (6) litera a) din Legea nr.207/2015 privind Codul de procedura fiscala, cu modificarile si completarile ulterioare'
+          }, {
+             key: 'temei',
+            value: '-articolul 105. (6) litera b) din Legea nr.207/2015 privind Codul de procedura fiscala, cu modificarile si completarile ulterioare'
+          }],
+          label: 'Temeiul legal pentru depunerea formularului 301 dupa anularea rezervei verificarii ulterioare:',
+          description: 'Select a title that suits your description'
+        }
+      },
     
-    {
-      key: 'checked4',
-      type: 'checkbox',
-      templateOptions: {
-        label: "-articolul 105. (6) litera b) din Legea nr.207/2015 privind Codul de procedura fiscala, cu modificarile si completarile ulterioare",
-        placeholder: ""
-      }
-    },
 
     {
       template : "<div><strong> DATELE DE IDENTIFICARE A PERSOANEI IMPOZABILE</div>"
@@ -142,7 +140,7 @@ export class Form {
     
 
     {
-      key: 'numePrenume',
+      key: 'denumire',
       type: 'input',
       templateOptions: {
         label: "Denumire / Nume, Prenume",
@@ -153,7 +151,7 @@ export class Form {
       template : "<div> Domiciliu fiscal</div>"
     },
     {
-      key: 'adress',
+      key: 'adresa',
       type: 'input',
       templateOptions: {
         label: "Adresa (judet ,localit.,str.,disabled.,scara,ap.,cod postal,sector)",
@@ -162,7 +160,7 @@ export class Form {
     },
 
     {
-      key: 'phoneNumber',
+      key: 'telefon',
       type: 'input',
       templateOptions: {
         label: "Telefon",
@@ -171,7 +169,7 @@ export class Form {
     },
 
     {
-      key: 'faxNumber',
+      key: 'fax',
       type: 'input',
       templateOptions: {
         label: "Fax",
@@ -198,7 +196,7 @@ export class Form {
     },
 
     {
-      key: 'account',
+      key: 'cont',
       type: 'input',
       templateOptions: {
         label: "Cont",
@@ -227,7 +225,7 @@ export class Form {
       template : "<div> Prezenta delcaratie constituie titlul de creanta si produce efecte juridice...</div>"
     },
      {
-      key: 'nume2',
+      key: 'nume_declarant',
       type: 'input',
       templateOptions: {
         label: "Nume",
@@ -235,7 +233,7 @@ export class Form {
       }
      },
       {
-      key: 'prenume2',
+      key: 'prenume_declarant',
       type: 'input',
       templateOptions: {
         label: "Prenume",
