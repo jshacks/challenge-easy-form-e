@@ -236,6 +236,22 @@ export class Form {
         label: "Suma (lei)",
         placeholder: ""
       }
+    } ,
+    {
+      key: 'cont_entitate',
+      type: 'input',
+      templateOptions: {
+        label: "Cont bancar (IBAN)",
+        placeholder: ""
+      }
+    } ,
+    {
+      key: 'den_entitate',
+      type: 'input',
+      templateOptions: {
+        label: "Denumire entitate nonprofit/unitate de cult",
+        placeholder: ""
+      }
     }
     
     
