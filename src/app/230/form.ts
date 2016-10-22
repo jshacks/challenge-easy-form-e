@@ -122,6 +122,24 @@ export class Form {
         placeholder: ""
       }
     }
+    ,
+    {
+      key: 'cnp',
+      type: 'input',
+      templateOptions: {
+        label: "Cod numeric personal/Numar de identificare fiscala",
+        placeholder: ""
+      }
+    }
+    ,
+    {
+      key: 'email',
+      type: 'input',
+      templateOptions: {
+        label: "E-mail",
+        placeholder: ""
+      }
+    }
       
 
     ]
