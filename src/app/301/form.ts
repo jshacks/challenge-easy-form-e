@@ -156,7 +156,7 @@ export class Form {
         placeholder: ""
       }
     },
-
+    
     {
       key: 'checked5',
       type: 'checkbox',
@@ -165,6 +165,35 @@ export class Form {
         placeholder: ""
       }
     },
+    {
+      template : "<div> Prezenta delcaratie constituie titlul de creanta si produce efecte juridice...</div>"
+    },
+     {
+      key: 'nume2',
+      type: 'input',
+      templateOptions: {
+        label: "Nume",
+        placeholder: ""
+      }
+     },
+      {
+      key: 'prenume2',
+      type: 'input',
+      templateOptions: {
+        label: "Prenume",
+        placeholder: ""
+      }
+      },
+       {
+      key: 'function',
+      type: 'input',
+      templateOptions: {
+        label: "Functia",
+        placeholder: ""
+      }
+      },
+
+
     ]
 }
 }
