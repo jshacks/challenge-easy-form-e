@@ -82,7 +82,16 @@ import {Component} from '@angular/core';
         placeholder: "4"
       }
 
-    }
+    }, 
+    {
+      key: 'cui',
+      type: 'input',
+      templateOptions: {
+        label: "COD DE IDENTIFICARE FISCALA    RO",
+        placeholder: "34983363"
+      }
+
+    },
     {
       key: 'prenume_declar',
       type: 'input',
