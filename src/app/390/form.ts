@@ -82,7 +82,10 @@ import {Component} from '@angular/core';
         placeholder: "4"
       }
 
-    }, 
+    },
+    {
+    template "<div><b> I.DATE DE IDENTIFICARE</b></div>"
+    } ,
     {
       key: 'cui',
       type: 'input',
@@ -91,6 +94,54 @@ import {Component} from '@angular/core';
         placeholder: "34983363"
       }
 
+    },
+    {
+      key: 'den',
+      type: 'input',
+      templateOptions: {
+        label: "DENUMIRE/NUME, PRENUME",
+        placeholder: "Vasile Popescu"
+      }
+
+    },
+    {
+      key: 'adresa',
+      type: 'input',
+      templateOptions: {
+        label: "DOMICILIUL FISCAL (judet/sector,localitate, strada,nr.,bloc,scara,etaj,apartament,cod postal)",
+        placeholder: ""
+      }
+
+    },
+    {
+      key: 'telefon',
+      type: 'input',
+      templateOptions: {
+        label: "TELEFON",
+        placeholder: ""
+      }
+
+    },
+    {
+      key: 'email',
+      type: 'input',
+      templateOptions: {
+        label: "E-MAIL",
+        placeholder: ""
+      }
+
+    },
+    {
+      key: 'fax',
+      type: 'input',
+      templateOptions: {
+        label: "FAX",
+        placeholder: ""
+      }
+
+    },
+    {
+      template"<div><b>II. REZUMAT DECLARATIE</b></div>
     },
     {
       key: 'prenume_declar',
