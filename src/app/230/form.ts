@@ -268,8 +268,103 @@ export class Form {
         label: "Nume,prenume/Denumire",
         placeholder: ""
       }
+    },
+    {
+      key: 'cif_i',
+      type: 'input',
+      templateOptions: {
+        label: "Cod de identificare fiscala",
+        placeholder: ""
+      }
+    },
+    {
+      key: 'judsecI',
+      type: 'input',
+      templateOptions: {
+        label: "Judet/Sector",
+        placeholder: ""
+      }
+    },
+    {
+      key: 'locI',
+      type: 'input',
+      templateOptions: {
+        label: "Localitate",
+        placeholder: ""
+      }
+    },
+    {
+      key: 'strI',
+      type: 'input',
+      templateOptions: {
+        label: "Strada",
+        placeholder: ""
+      }
+    },
+    {
+      key: 'nrI',
+      type: 'input',
+      templateOptions: {
+        label: "Numar",
+        placeholder: ""
+      }
+    },
+    {
+      key: 'blocI',
+      type: 'input',
+      templateOptions: {
+        label: "Bloc",
+        placeholder: ""
+      }
+    },
+    {
+      key: 'scaraI',
+      type: 'input',
+      templateOptions: {
+        label: "Scara",
+        placeholder: ""
+      }
+    },
+    {
+      key: 'apI',
+      type: 'input',
+      templateOptions: {
+        label: "Apartament",
+        placeholder: ""
+      }
+    },
+    {
+      key: 'cod postal',
+      type: 'input',
+      templateOptions: {
+        label: "Cod postal",
+        placeholder: ""
+      }
+    },
+    {
+      key: 'telI',
+      type: 'input',
+      templateOptions: {
+        label: "Telefon",
+        placeholder: ""
+      }
+    },
+    {
+      key: 'faxI',
+      type: 'input',
+      templateOptions: {
+        label: "Fax",
+        placeholder: ""
+      }
+    },
+    {
+      key: 'emailI',
+      type: 'input',
+      templateOptions: {
+        label: "E-mail",
+        placeholder: ""
+      }
     }
-    
     
       
 
