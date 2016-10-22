@@ -60,7 +60,7 @@ export class Form {
       }
     },
     {
-      key: 'initTata',
+      key: 'initiala_c',
       type: 'input',
       templateOptions: {
         label: "Initiala tatalui",
@@ -68,7 +68,7 @@ export class Form {
       }
     },
     {
-      key: 'prenumePers',
+      key: 'prenume_c',
       type: 'input',
       templateOptions: {
         label: "Prenume",
@@ -76,7 +76,7 @@ export class Form {
       }
     },
     {
-      key: 'strada',
+      key: 'adresa_c',
       type: 'input',
       templateOptions: {
         label: "Strada",
@@ -151,7 +151,7 @@ export class Form {
     }
     ,
     {
-      key: 'cnp',
+      key: 'cif_c',
       type: 'input',
       templateOptions: {
         label: "Cod numeric personal/Numar de identificare fiscala",
@@ -169,7 +169,7 @@ export class Form {
     }
     ,
     {
-      key: 'telefon',
+      key: 'telefon_c',
       type: 'input',
       templateOptions: {
         label: "Telefon",
@@ -187,13 +187,58 @@ export class Form {
     }
     ,
     {
-      key: 'etaj',
-      type: '',
+      key: 'bifa_bursa',
+      type: 'checkbox',
       templateOptions: {
-        label: "Etaj",
+        label: "1 Bursa privata",
         placeholder: ""
       }
     }
+     ,
+    {
+      key: 'suma_bursa',
+      type: 'input',
+      templateOptions: {
+        label: "Suma platita (lei)",
+        placeholder: ""
+      }
+    },
+    {
+      key: 'contract_bursa',
+      type: 'input',
+      templateOptions: {
+        label: "Contract nr./data",
+        placeholder: ""
+      }
+    }
+    ,
+    {
+      key: 'doc_plata_bursa',
+      type: 'input',
+      templateOptions: {
+        label: "Documente de plata nr./data",
+        placeholder: ""
+      }
+    } ,
+    {
+      key: 'bifa_entitate',
+      type: 'checkbox',
+      templateOptions: {
+        label: "2 Sustinerea unei entitati nonprofit/ unitati de cult",
+        placeholder: ""
+      }
+    }
+    ,
+    {
+      key: 'suma_entitate',
+      type: 'input',
+      templateOptions: {
+        label: "Suma (lei)",
+        placeholder: ""
+      }
+    }
+    
+    
       
 
     ]
