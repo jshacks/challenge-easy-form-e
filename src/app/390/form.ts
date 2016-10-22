@@ -171,6 +171,42 @@ import {Component} from '@angular/core';
 
     },
     {
+      key: 'sumliv_achi',
+      type: 'input',
+      templateOptions: {
+        label: "SUMA LIVRARILOR / ACHIZIZITIILOR INTRACOMUNITARE",
+        placeholder: ""
+      }
+
+    },
+    {
+      key: 'bazaL',
+      type: 'input',
+      templateOptions: {
+        label: "LIVRARI INTRACOMUNITARE DE BUNURI",
+        placeholder: ""
+      }
+
+    },
+    {
+      key: 'bazaT',
+      type: 'input',
+      templateOptions: {
+        label: "LIVRARI IN CADRUL UNEI OPERATIUNI TRIUNGHIULARE",
+        placeholder: "Ex:Gogu"
+      }
+
+    },
+    {
+      key: 'prenume_declar',
+      type: 'input',
+      templateOptions: {
+        label: "Prenume",
+        placeholder: "Ex:Gogu"
+      }
+
+    },
+    {
       key: 'prenume_declar',
       type: 'input',
       templateOptions: {
