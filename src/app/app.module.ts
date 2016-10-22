@@ -16,12 +16,16 @@ import {LocationStrategy, HashLocationStrategy} from '@angular/common';
 import {Form as D112} from './112/form';
 import {Form as D390} from './390/form';
 import {Form as D301} from './301/form';
+import {Form as D220} from './220/form';
+import {Form as D230} from './230/form';
 
 @NgModule({
   declarations: [AppComponent, About, RepoBrowser, RepoList, RepoDetail, Home,
   D112,
   D390,
-  D301
+  D301,
+  D220,
+  D230
   ],
   imports     : [BrowserModule, FormsModule, HttpModule, RouterModule.forRoot(rootRouterConfig)],
   providers   : [Github, {provide: LocationStrategy, useClass: HashLocationStrategy}],
