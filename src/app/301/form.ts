@@ -61,7 +61,33 @@ export class Form {
       }
     },
     
+    {
+      key: 'checked4',
+      type: 'checkbox',
+      templateOptions: {
+        label: "-articolul 105. (6) litera b) din Legea nr.207/2015 privind Codul de procedura fiscala, cu modificarile si completarile ulterioare",
+        placeholder: ""
+      }
+    },
+
+    {
+      key: 'codFiscal',
+      type: 'input',
+      templateOptions: {
+        label: "Cod de indentificare fiscala",
+        placeholder: ""
+      }
+    },
     
+
+    {
+      key: 'numePrenume',
+      type: 'input',
+      templateOptions: {
+        label: "Denumire / Nume, Prenume",
+        placeholder: ""
+      }
+    },
 
     ]
 }
