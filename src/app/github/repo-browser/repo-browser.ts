@@ -5,7 +5,7 @@ import { Github } from '../shared/github';
 @Component({
   selector: 'repo-browser',
   templateUrl: './repo-browser.html',
-  styleUrls: ['./repo-browser.css']
+  styleUrls: ['./repo-browser.scss']
 })
 export class RepoBrowser {
 

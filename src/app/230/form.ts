@@ -2,7 +2,7 @@ import {Component} from '@angular/core';
 
 @Component({
   selector: 'd390',
-  styleUrls: ['./form.css'],
+  styleUrls: ['./form.scss'],
   templateUrl: './form.html'
 })
 export class Form {

@@ -5,7 +5,7 @@ import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'repo-list',
-  styleUrls: ['./repo-list.css'],
+  styleUrls: ['./repo-list.scss'],
   templateUrl: './repo-list.html',
 })
 export class RepoList implements OnInit {
