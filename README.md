@@ -15,6 +15,16 @@ By participating, you are expected to uphold this code. Please report unacceptab
 behavior to hello@incremental.community or contact@jshacks.io.
 
 
+##Team
+
+* Andrei Haiducu – Student Automatica
+* Daniel Haiducu – Student Automatica
+* Dragos Heroiu – Student Energetica
+* Paul Hristea – Student Mate-Info Brasov
+* Victor Locoman – Web Developer
+* Alex Proca – Software engineer
+
+
 ## Documentation
 
 
