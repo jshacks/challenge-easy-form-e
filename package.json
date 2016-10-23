@@ -5,7 +5,7 @@
   "scripts": {
     "build": "webpack --inline --colors --progress --display-error-details --display-cached",
     "watch": "npm run build -- --watch",
-    "server": "webpack-dev-server --inline --colors --progress --display-error-details --display-cached --port 3000  --content-base src",
+    "server": "webpack-dev-server --inline --colors --progress --display-error-details --host 0.0.0.0 --display-cached --port 3000  --content-base src",
     "start": "npm run server",
     "postinstall": "npm build"
   },

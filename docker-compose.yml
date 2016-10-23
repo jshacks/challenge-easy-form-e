@@ -1,0 +1,10 @@
+easyforme:
+  image: node:6
+  ports:
+    - '0.0.0.0:8080:3000'
+  working_dir: '/node-project'
+  hostname: controlpanel
+  command: 'npm start'
+  restart: always
+  volumes:
+    - .:/node-project
