@@ -9,11 +9,10 @@ import {Declaratia310Service} from '../services/declaratieService';
   templateUrl: './form.html'
 })
 export class Form {
-
-
   response:string;
   pdfId:string;
-
+  loading: boolean = false;
+  butonGenerare: string = 'Generare';
 
   form: FormGroup;
   userFields: FormlyFieldConfig[];
@@ -50,357 +49,342 @@ export class Form {
   constructor(fb: FormBuilder, private dService: Declaratia310Service) {
     this.form = fb.group({});
 
-    this.userFields = [
-       {
+    this.userFields = [{
+      className: 'col-xs-12',
       template: "<div><b> CERERE PRIVIND DESTINATIA SUMEI REPREZENTAND PANA LA 2% DIN IMPOZITUL ANUAL PE VENITURILE DIN SALARII SI ASIMILATE SALARIILOR</b></div>"
-    },
-    {
+    }, {
+      className: 'col-xs-12',
       key: 'an',
       type: 'input',
       templateOptions: {
         label: "Anul",
         placeholder: "2016"
       }
-    },
-      {
+    }, {
+      className: 'col-xs-12',
       key: 'totalPlata_A',
       type: 'input',
       templateOptions: {
         label: "(suma de control)",
         placeholder: "0"
       }
-    },
-    {
+    }, {
+      className: 'col-xs-12',
       template :"<div><b> 1.DATE DE IDENTIFICARE A CONTRIBUABILULUI</b></div>"
-    },
-    {
+    }, {
+      className: 'col-xs-12',
       key: 'nume_c',
       type: 'input',
       templateOptions: {
         label: "Nume",
         placeholder: ""
       }
-    },
-    {
+    }, {
+      className: 'col-xs-12',
       key: 'initiala_c',
       type: 'input',
       templateOptions: {
         label: "Initiala tatalui",
         placeholder: ""
       }
-    },
-    {
+    }, {
+      className: 'col-xs-12',
       key: 'prenume_c',
       type: 'input',
       templateOptions: {
         label: "Prenume",
         placeholder: ""
       }
-    },
-    {
+    }, {
+      className: 'col-xs-12',
       key: 'strada_c',
       type: 'input',
       templateOptions: {
         label: "Strada",
         placeholder: ""
       }
-    },
-    {
+    }, {
+      className: 'col-xs-12',
       key: 'numar',
       type: 'input',
       templateOptions: {
         label: "Numar",
         placeholder: ""
       }
-    },
-    {
+    }, {
+      className: 'col-xs-12',
       key: 'bloc',
       type: 'input',
       templateOptions: {
         label: "Bloc",
         placeholder: ""
       }
-    },
-    {
+    }, {
+      className: 'col-xs-12',
       key: 'scara',
       type: 'input',
       templateOptions: {
         label: "Scara",
         placeholder: ""
       }
-    },
-    {
+    }, {
+      className: 'col-xs-12',
       key: 'etaj',
       type: 'input',
       templateOptions: {
         label: "Etaj",
         placeholder: ""
       }
-    },
-    {
+    }, {
+      className: 'col-xs-12',
       key: 'apar',
       type: 'input',
       templateOptions: {
         label: "Ap.",
         placeholder: ""
       }
-    }
-      ,
-    {
+    }, {
+      className: 'col-xs-12',
       key: 'judSect',
       type: 'input',
       templateOptions: {
         label: "Judet/Sector",
         placeholder: ""
       }
-    }
-    ,
-    {
+    }, {
+      className: 'col-xs-12',
       key: 'local',
       type: 'input',
       templateOptions: {
         label: "Localitate",
         placeholder: ""
       }
-    },
-    {
+    }, {
+      className: 'col-xs-12',
       key: 'codp',
       type: 'input',
       templateOptions: {
         label: "Cod postal",
         placeholder: ""
       }
-    }
-    ,
-    {
+    }, {
+      className: 'col-xs-12',
       key: 'cif_c',
       type: 'input',
       templateOptions: {
         label: "Cod numeric personal/Numar de identificare fiscala",
         placeholder: ""
       }
-    }
-    ,
-    {
+    }, {
+      className: 'col-xs-12',
       key: 'email',
       type: 'input',
       templateOptions: {
         label: "E-mail",
         placeholder: ""
       }
-    }
-    ,
-    {
+    }, {
+      className: 'col-xs-12',
       key: 'telefon_c',
       type: 'input',
       templateOptions: {
         label: "Telefon",
         placeholder: ""
       }   
-    }
-    ,
-    {
+    }, {
+      className: 'col-xs-12',
       key: 'fax',
       type: 'input',
       templateOptions: {
         label: "Fax",
         placeholder: ""
       }
-    }
-    , 
-    {
+    }, {
+      className: 'col-xs-12',
       template: "<div><b> 1.DESTINATIA SUMEI REPREZENTAND PANA LA 2% DIN IMPOZITUL ANUAL,POTRIVIT ART 57. ALIN.(4) DIN LEGEA NR.571/2003</b></div>"
-    },
-    {
+    }, {
+      className: 'col-xs-12',
       key: 'bifa_bursa',
       type: 'checkbox',
       templateOptions: {
         label: "1 Bursa privata",
         placeholder: ""
       }
-    }
-     ,
-    {
+    }, {
+      className: 'col-xs-12',
       key: 'suma_bursa',
       type: 'input',
       templateOptions: {
         label: "Suma platita (lei)",
         placeholder: ""
       }
-    },
-    {
+    }, {
+      className: 'col-xs-12',
       key: 'contract_bursa',
       type: 'input',
       templateOptions: {
         label: "Contract nr./data",
         placeholder: ""
       }
-    }
-    ,
-    {
+    }, {
+      className: 'col-xs-12',
       key: 'doc_plata_bursa',
       type: 'input',
       templateOptions: {
         label: "Documente de plata nr./data",
         placeholder: ""
       }
-    } ,
-    {
+    }, {
+      className: 'col-xs-12',
       key: 'bifa_entitate',
       type: 'checkbox',
       templateOptions: {
         label: "2 Sustinerea unei entitati nonprofit/ unitati de cult",
         placeholder: ""
       }
-    }
-    ,
-    {
+    }, {
+      className: 'col-xs-12',
       key: 'suma_entitate',
       type: 'input',
       templateOptions: {
         label: "Suma (lei)",
         placeholder: ""
       }
-    } ,
-    {
+    }, {
+      className: 'col-xs-12',
       key: 'cont_entitate',
       type: 'input',
       templateOptions: {
         label: "Cont bancar (IBAN)",
         placeholder: ""
       }
-    } ,
-    {
+    }, {
+      className: 'col-xs-12',
       key: 'den_entitate',
       type: 'input',
       templateOptions: {
         label: "Denumire entitate nonprofit/unitate de cult",
         placeholder: ""
       }
-    } ,
-    {
+    }, {
+      className: 'col-xs-12',
       key: 'cif_entitate',
       type: 'input',
       templateOptions: {
         label: "Cod de identificare fiscala entitate nonprofit/unitate de cult",
         placeholder: ""
       }
-    },
-     {
+    }, {
+      className: 'col-xs-12',
       template :"<div><b> 1.DATE DE IDENTIFICARE A IMPUTERNICITULUI</b></div>"
-    },
-    {
+    }, {
+      className: 'col-xs-12',
       key: 'den_i',
       type: 'input',
       templateOptions: {
         label: "Nume,prenume/Denumire",
         placeholder: ""
       }
-    },
-    {
+    }, {
+      className: 'col-xs-12',
       key: 'cif_i',
       type: 'input',
       templateOptions: {
         label: "Cod de identificare fiscala",
         placeholder: ""
       }
-    },
-    {
+    }, {
+      className: 'col-xs-12',
       key: 'judsecI',
       type: 'input',
       templateOptions: {
         label: "Judet/Sector",
         placeholder: ""
       }
-    },
-    {
+    }, {
+      className: 'col-xs-12',
       key: 'locI',
       type: 'input',
       templateOptions: {
         label: "Localitate",
         placeholder: ""
       }
-    },
-    {
+    }, {
+      className: 'col-xs-12',
       key: 'strI',
       type: 'input',
       templateOptions: {
         label: "Strada",
         placeholder: ""
       }
-    },
-    {
+    }, {
+      className: 'col-xs-12',
       key: 'nrI',
       type: 'input',
       templateOptions: {
         label: "Numar",
         placeholder: ""
       }
-    },
-    {
+    }, {
+      className: 'col-xs-12',
       key: 'blocI',
       type: 'input',
       templateOptions: {
         label: "Bloc",
         placeholder: ""
       }
-    },
-    {
+    }, {
+      className: 'col-xs-12',
       key: 'scaraI',
       type: 'input',
       templateOptions: {
         label: "Scara",
         placeholder: ""
       }
-    },
-    {
+    }, {
+      className: 'col-xs-12',
       key: 'apI',
       type: 'input',
       templateOptions: {
         label: "Apartament",
         placeholder: ""
       }
-    },
-    {
+    }, {
+      className: 'col-xs-12',
       key: 'codpI',
       type: 'input',
       templateOptions: {
         label: "Cod postal",
         placeholder: ""
       }
-    },
-    {
+    }, {
+      className: 'col-xs-12',
       key: 'telefon_i',
       type: 'input',
       templateOptions: {
         label: "Telefon",
         placeholder: ""
       }
-    },
-    {
+    }, {
+      className: 'col-xs-12',
       key: 'faxI',
       type: 'input',
       templateOptions: {
         label: "Fax",
         placeholder: ""
       }
-    },
-    {
+    }, {
+      className: 'col-xs-12',
       key: 'emailI',
       type: 'input',
       templateOptions: {
         label: "E-mail",
         placeholder: ""
       }
-    }
-
-    
-      
-
-    ]
+    }]
   }
 
-  validare () {
+  postProcess () {
     let adresa = `strada ${this.user.strada_c} nr. ${this.user.numar} bl. ${this.user.bloc} sc. ${this.user.scara} et. ${this.user.etaj} ap. ${this.user.apar} jud. ${this.user.judSect} localit. ${this.user.local} cod postal ${this.user.codp}`;
     
     this.user.adresa_c = adresa;
@@ -429,16 +413,17 @@ export class Form {
 
     this.user.totalPlata_A = +this.user.suma_bursa + +this.user.suma_entitate;
 
+    this.loading = true;
+    this.butonGenerare = 'Regenerare';
+    this.response = '';
 
     this.dService.sendData(this.user).then(response => {
-    
+      this.loading = false;
       this.response = JSON.parse(response["_body"]);
 
       if(this.response['fileId'] != '') {
           this.pdfId = this.response['fileId']
       }
-
     })
   }
 }
-

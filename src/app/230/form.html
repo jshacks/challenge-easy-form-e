@@ -1,11 +1,22 @@
-<h3>230</h3>
-        
-        <formly-form [model]="user" [fields]="userFields"></formly-form>
-        <button (click)="validare()" class="btn btn-success">Validare</button>
-
-         <div>    <button type="submit" class="btn btn-primary" (click)="postProcess()" >Generare</button></div>
-        <div>
-                 <a type="submit" *ngIf="pdfId" href="{{dService.theUrl}}/download/{{pdfId}}" class="btn btn-primary" >Download Pdf</a>
-            </div>
-        
-
+<div class="row centertext">
+    <h1 class="col-xs-12">230</h1>
+    <h2 class="col-xs-12">Titlu declaratie</h2>
+    <hr />
+</div>
+<div>
+    <formly-form [model]="user" [fields]="userFields" class="row"></formly-form>
+</div>
+<div class="row">
+    <hr />
+    <div class="col-xs-12">
+        <button (click)="postProcess()" class="btn btn-primary">{{butonGenerare}}</button>
+        <form style="display: inline" action="{{dService.theUrl}}/download/{{pdfId}}" method="get">
+            <button type="submit" class="btn btn-success" [disabled]="!pdfId">Descarca PDF</button>
+        </form>
+    </div>
+    <div class="loading col-xs-12" *ngIf="loading">Se incarca...</div>
+    <div *ngIf="response" class="col-xs-12">
+        <h3>Raspuns:</h3>
+        <pre>{{response|json}}</pre>
+    </div>
+</div>

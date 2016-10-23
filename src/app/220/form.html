@@ -1,18 +1,22 @@
 <div class="row centertext">
     <h1 class="col-xs-12">220</h1>
     <h2 class="col-xs-12">Declaratie privind venitul estimat / norma de venit</h2>
+    <hr />
 </div>
-<hr />
 <div>
     <formly-form [model]="data" [fields]="fields"></formly-form>
 </div>
-<hr />
-<div>
-    <button (click)="postProcess()" class="btn btn-primary">{{butonGenerare}}</button>
-    <button class="btn btn-success" [disabled]="!pdfId"><a href="{{dService.theUrl}}/download/{{pdfId}}" style="color: #fff">Download Pdf</a></button>
-</div>
-<div class="loading" *ngIf="loading">Loading...</div>
-<div *ngIf="response">
-    <h3>Raspuns:</h3>
-    <pre>{{response|json}}</pre>
+<div class="row">
+    <hr />
+    <div class="col-xs-12">
+        <button (click)="postProcess()" class="btn btn-primary">{{butonGenerare}}</button>
+        <form style="display: inline" action="{{dService.theUrl}}/download/{{pdfId}}" method="get">
+            <button type="submit" class="btn btn-success" [disabled]="!pdfId">Descarca PDF</button>
+        </form>
+    </div>
+    <div class="loading col-xs-12" *ngIf="loading">Se incarca...</div>
+    <div *ngIf="response" class="col-xs-12">
+        <h3>Raspuns:</h3>
+        <pre>{{response|json}}</pre>
+    </div>
 </div>
