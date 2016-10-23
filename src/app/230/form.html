@@ -1,6 +1,11 @@
 <h3>230</h3>
         
         <formly-form [model]="user" [fields]="userFields"></formly-form>
-        <button (click)="sumaControl()" class="btn btn-success">Suma Control</button>
-        {{user|json}}
+        <button (click)="validare()" class="btn btn-success">Validare</button>
+
+         <div>    <button type="submit" class="btn btn-primary" (click)="postProcess()" >Generare</button></div>
+        <div>
+                 <a type="submit" *ngIf="pdfId" href="{{dService.theUrl}}/download/{{pdfId}}" class="btn btn-primary" >Download Pdf</a>
+            </div>
+        
 
