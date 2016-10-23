@@ -8,8 +8,8 @@
 </div>
 <hr />
 <div>
-    <button (click)="postProcess()" class="btn btn-primary">Generare</button>
-    <a type="submit" *ngIf="pdfId" href="{{dService.theUrl}}/download/{{pdfId}}" class="btn btn-success">Download Pdf</a>
+    <button (click)="postProcess()" class="btn btn-primary">{{butonGenerare}}</button>
+    <button class="btn btn-success" [disabled]="!pdfId"><a type="submit" href="{{dService.theUrl}}/download/{{pdfId}}" style="color: #fff">Download Pdf</a></button>
 </div>
 <div class="loading" *ngIf="loading">Loading...</div>
 <div *ngIf="response">

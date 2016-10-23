@@ -15,6 +15,7 @@ export class Form {
   response:string;
   pdfId:string;
   loading: boolean = false;
+  butonGenerare: string = 'Generare';
 
   postData: any = {};
   data: any = {
@@ -77,7 +78,7 @@ export class Form {
         className: 'col-xs-6',
         template: '<h4>Configurari generale</h4>'
       }, {
-        className: 'col-xs-3 offset-xs-3',
+        className: 'col-xs-6 col-md-3 offset-md-3',
         key: 'an',
         type: 'input',
         templateOptions: {
@@ -89,7 +90,7 @@ export class Form {
     }, {
       className: 'row',
       fieldGroup: [{
-        className: 'col-xs-6',
+        className: 'col-xs-12 col-md-6',
         key: 'd_rec1',
         type: 'multicheckbox',
         templateOptions: {
@@ -104,7 +105,7 @@ export class Form {
         },
         validation: Validators.compose([Validators.required])
       }, {
-        className: 'col-xs-6',
+        className: 'col-xs-12 col-md-6',
         key: 'd_rec2',
         type: 'checkbox',
         templateOptions: {
@@ -142,7 +143,7 @@ export class Form {
         className: 'col-xs-12',
         template: '<h3>Sub sanctiunile aplicate faptei de fals in acte publice, declar ca datele inscrise in acest formular sunt corecte si complete.</h3>'
       }, {
-        className: 'col-xs-4',
+        className: 'col-xs-12 col-md-4',
         key: 'nume_declar',
         type: 'input',
         templateOptions: {
@@ -150,7 +151,7 @@ export class Form {
         },
         validation: Validators.compose([Validators.required, Validators.maxLength(75)])
       }, {
-        className: 'col-xs-4',
+        className: 'col-xs-12 col-md-4',
         key: 'prenume_declar',
         type: 'input',
         templateOptions: {
@@ -158,7 +159,7 @@ export class Form {
         },
         validation: Validators.compose([Validators.required, Validators.maxLength(75)])
       }, {
-        className: 'col-xs-4',
+        className: 'col-xs-12 col-md-4',
         key: 'functie_declar',
         type: 'input',
         templateOptions: {
@@ -167,100 +168,121 @@ export class Form {
         validation: Validators.compose([Validators.required, Validators.maxLength(50)])
       }]
     }, {
-      template: '<h4>I. Date de identificare a contribuabilului</h4>'
+      className: 'row',
+      fieldGroup: [{
+        className: 'col-xs-12',
+        template: '<h4>I. Date de identificare a contribuabilului</h4>'
+      }, {
+        className: 'col-xs-12 col-md-6',
+        key: 'nume',
+        type: 'input',
+        templateOptions: {
+          label: 'Nume si Prenume'
+        },
+        validation: Validators.compose([Validators.required, Validators.maxLength(75)])
+      }, {
+        className: 'col-xs-12 col-md-6',
+        key: 'cif',
+        type: 'input',
+        templateOptions: {
+          label: 'CNP / NIF',
+          type: 'number'
+        },
+        validation: Validators.compose([Validators.required, Validators.maxLength(13), Validators.minLength(13)])
+      }, {
+        className: 'col-xs-12',
+        key: 'adresa',
+        type: 'input',
+        templateOptions: {
+          label: 'Adresa (Strada, Numar, Bloc, Scara, Etaj, Ap., Judet / Sector, Localitate, Cos postal)'
+        },
+        validation: Validators.compose([Validators.maxLength(200)])
+      }, {
+        className: 'col-xs-12 col-md-4',
+        key: 'telefon',
+        type: 'input',
+        templateOptions: {
+          label: 'Telefon'
+        },
+        validation: Validators.compose([Validators.maxLength(15)])
+      }, {
+        className: 'col-xs-12 col-md-4',
+        key: 'fax',
+        type: 'input',
+        templateOptions: {
+          label: 'Fax',
+          type: 'number'
+        },
+        validation: Validators.compose([Validators.maxLength(15)])
+      }, {
+        className: 'col-xs-12 col-md-4',
+        key: 'email',
+        type: 'input',
+        templateOptions: {
+          label: 'E-mail',
+          type: 'email'
+        },
+        validation: Validators.compose([Validators.maxLength(200)])
+      }]
     }, {
-      key: 'nume',
-      type: 'input',
-      templateOptions: {
-        label: 'Nume si Prenume'
-      },
-      validation: Validators.compose([Validators.required, Validators.maxLength(75)])
+      className: 'row',
+      fieldGroup: [{
+        className: 'col-xs-12',
+        template: '<h4>IV. Date de identificare a imputernicitului</h4>'
+      }, {
+        className: 'col-xs-12 col-md-6',
+        key: 'den_r',
+        type: 'input',
+        templateOptions: {
+          label: 'Nume, prenume / Denumire',
+        },
+        validation: Validators.compose([Validators.maxLength(75)])
+      }, {
+        className: 'col-xs-12 col-md-6',
+        key: 'cif_r',
+        type: 'input',
+        templateOptions: {
+          label: 'Cod de identificare fiscala (CF / CNP)',
+          type: 'number'
+        },
+        validation: Validators.compose([Validators.maxLength(13)])
+      }, {
+        className: 'col-xs-12',
+        key: 'adresa_r',
+        type: 'input',
+        templateOptions: {
+          label: 'Adresa (Strada, Numar, Bloc, Scara, Etaj, Ap., Judet / Sector, Localitate, Cod postal)',
+        },
+        validation: Validators.compose([Validators.maxLength(200)])
+      }, {
+        className: 'col-xs-12 col-md-4',
+        key: 'telefon_r',
+        type: 'input',
+        templateOptions: {
+          label: 'Telefon',
+        },
+        validation: Validators.compose([Validators.maxLength(15)])
+      }, {
+        className: 'col-xs-12 col-md-4',
+        key: 'fax_r',
+        type: 'input',
+        templateOptions: {
+          label: 'Fax',
+        },
+        validation: Validators.compose([Validators.maxLength(15)])
+      }, {
+        className: 'col-xs-12 col-md-4',
+        key: 'email_r',
+        type: 'input',
+        templateOptions: {
+          label: 'E-mail',
+          type: 'email'
+        },
+        validation: Validators.compose([Validators.maxLength(200)])
+      }]
     }, {
-      key: 'cif',
-      type: 'input',
-      templateOptions: {
-        label: 'CNP / NIF',
-        type: 'number'
-      },
-      validation: Validators.compose([Validators.required, Validators.maxLength(13), Validators.minLength(13)])
-    }, {
-      key: 'adresa',
-      type: 'input',
-      templateOptions: {
-        label: 'Adresa (Strada, Numar, Bloc, Scara, Etaj, Ap., Judet / Sector, Localitate, Cos postal)'
-      },
-      validation: Validators.compose([Validators.maxLength(200)])
-    }, {
-      key: 'telefon',
-      type: 'input',
-      templateOptions: {
-        label: 'Telefon'
-      },
-      validation: Validators.compose([Validators.maxLength(15)])
-    }, {
-      key: 'fax',
-      type: 'input',
-      templateOptions: {
-        label: 'Fax',
-        type: 'number'
-      },
-      validation: Validators.compose([Validators.maxLength(15)])
-    }, {
-      key: 'email',
-      type: 'input',
-      templateOptions: {
-        label: 'E-mail',
-        type: 'email'
-      },
-      validation: Validators.compose([Validators.maxLength(200)])
-    }, {
-      template: '<h4>IV. Date de identificare a imputernicitului</h4>'
-    }, {
-      key: 'den_r',
-      type: 'input',
-      templateOptions: {
-        label: 'Nume, prenume / Denumire',
-      },
-      validation: Validators.compose([Validators.maxLength(75)])
-    }, {
-      key: 'cif_r',
-      type: 'input',
-      templateOptions: {
-        label: 'Cod de identificare fiscala (CF / CNP)',
-        type: 'number'
-      },
-      validation: Validators.compose([Validators.maxLength(13)])
-    }, {
-      key: 'adresa_r',
-      type: 'input',
-      templateOptions: {
-        label: 'Adresa (Strada, Numar, Bloc, Scara, Etaj, Ap., Judet / Sector, Localitate, Cod postal)',
-      },
-      validation: Validators.compose([Validators.maxLength(200)])
-    },{
-      key: 'telefon_r',
-      type: 'input',
-      templateOptions: {
-        label: 'Telefon',
-      },
-      validation: Validators.compose([Validators.maxLength(15)])
-    },{
-      key: 'fax_r',
-      type: 'input',
-      templateOptions: {
-        label: 'Fax',
-      },
-      validation: Validators.compose([Validators.maxLength(15)])
-    },{
-      key: 'email_r',
-      type: 'input',
-      templateOptions: {
-        label: 'E-mail',
-        type: 'email'
-      },
-      validation: Validators.compose([Validators.maxLength(200)])
-    }, {
-      template: '<h4>II. Date privind activitatea desfasurata{{data|json}}</h4>'
+      className: 'row',
+      template: '<h4 class="col-xs-12">II. Date privind activitatea desfasurata{{data|json}}</h4>'
     }, {
       key: 'childNodesPre',
       fieldGroup: [{
@@ -501,6 +523,7 @@ export class Form {
     this.postData.childNodes.push(this.postData.childNodesPre);
     delete this.postData.childNodesPre;
     this.loading = true;
+    this.butonGenerare = 'Regenerare';
     this.response = '';
 
     this.dService.sendData(this.postData).then(response => {
