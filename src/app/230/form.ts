@@ -393,7 +393,7 @@ export class Form {
     ]
   }
 
-  sumaControl() {
+  validare() {
     let adresa = `strada ${this.user.strada_c} nr. ${this.user.numar} bl. ${this.user.bloc} sc. ${this.user.scara} et. ${this.user.etaj} ap. ${this.user.apar} jud. ${this.user.judSect} localit. ${this.user.local} cod postal ${this.user.codp}`;
     
     this.user.adresa_c = adresa;
