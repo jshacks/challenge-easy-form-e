@@ -10,9 +10,7 @@
     <hr />
     <div class="col-xs-12">
         <button (click)="postProcess()" class="btn btn-primary">{{butonGenerare}}</button>
-        <form style="display: inline" action="{{dService.theUrl}}/download/{{pdfId}}" method="get">
-            <button type="submit" class="btn btn-success" [disabled]="!pdfId">Descarca PDF</button>
-        </form>
+   <a role="button" *ngIf="pdfId" href="{{dService.theUrl}}/download/{{pdfId}}" class="btn btn-success">Download Pdf</a>
     </div>
     <div class="loading col-xs-12" *ngIf="loading">Se incarca...</div>
     <div *ngIf="response" class="col-xs-12">
