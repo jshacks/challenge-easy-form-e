@@ -1,7 +1,6 @@
 var webpack = require('webpack');
 var path = require('path');
 
-
 // Webpack Config
 var webpackConfig = {
   entry: {
@@ -23,6 +22,10 @@ var webpackConfig = {
     loaders: [
       // .ts files for TypeScript
       { test: /\.ts$/, loaders: ['awesome-typescript-loader', 'angular2-template-loader'] },
+      { test: /\.scss$/, loader: 'style!css!sass',
+        include: [
+          path.resolve(__dirname, "src/app/assets")]
+      },
       { test: /\.css$/, loader: 'style!css' },
       { test: /\.html$/, loader: 'raw-loader' },
       {
@@ -31,7 +34,9 @@ var webpackConfig = {
       },
       {
         test: /\.scss$/,
-        loaders: ['raw-loader', 'style-loader', 'css-loader', 'sass-loader']
+        loaders: ['raw-loader', 'style-loader', 'css-loader', 'sass-loader'],
+        exclude: [
+          path.resolve(__dirname, "src/app/assets")]
       }
     ]
   }

@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {FormlyModule, FormlyFieldConfig, FormlyBootstrapModule, Field, FieldWrapper} from '../../formly';
+import {Declaratia310Service} from '../services/declaratieService';
 
 @Component({
   selector: 'd220',
@@ -10,6 +11,10 @@ import {FormlyModule, FormlyFieldConfig, FormlyBootstrapModule, Field, FieldWrap
 export class Form {
   group: FormGroup;
   fields: FormlyFieldConfig[];
+
+  response:string;
+  pdfId:string;
+  loading: boolean = false;
 
   postData: any = {};
   data: any = {
@@ -49,9 +54,11 @@ export class Form {
       'det_venit': 1, // n1 da
       'forma_org': 2, // n1 da
       'CAEN': 6202, // c4
-      'judet': '03', // n2
+      'judet': '03', // n2 . select
       'localitate': 'PITESTI', // c50
       'sediu': 'Aleea Cucului', // c200
+      // 'sector' : 1, // select
+      // 'tip_doc' : 1, // select
       'data_I': '12.10.2016', // d10
       'data_F': '22.10.2016', // d10
       'nr_zile': 4, // n3
@@ -62,45 +69,72 @@ export class Form {
     },
     'childNodes': [] // de adaugat childNodesPre
   };
-  constructor(fb: FormBuilder) {
+  constructor(fb: FormBuilder, private dService: Declaratia310Service) {
     this.group = fb.group({});
     this.fields = [{
-      template: '<h4>Configurari generale</h4>'
+      className: 'row',
+      fieldGroup: [{
+        className: 'col-xs-6',
+        template: '<h4>Configurari generale</h4>'
+      }, {
+        className: 'col-xs-3 offset-xs-3',
+        key: 'an',
+        type: 'input',
+        templateOptions: {
+          label: 'Anul',
+          type: 'number'
+        },
+        validation: Validators.compose([Validators.required, Validators.maxLength(4), Validators.minLength(4)])
+      }]
     }, {
-      key: 'an',
-      type: 'input',
-      templateOptions: {
-        label: 'Anul',
-        type: 'number'
-      },
-      validation: Validators.compose([Validators.required, Validators.maxLength(4), Validators.minLength(4)])
-    }, {
-      key: 'd_rec1',
-      type: 'multicheckbox',
-      templateOptions: {
-        options: [{
-          key: '1',
-          value: '1.a. Cu titlu de impozit'
-        }, {
-          key: '2',
-          value: '1.b. Cu titlu de contributii sociale'
-        }],
-        label: '1. Recalcularea platilor anticipate *)'
-      },
-      validation: Validators.compose([Validators.required])
-    }, {
-      key: 'd_rec2',
-      type: 'checkbox',
-      templateOptions: {
-        label: '2. Modificarea modului de determinare a venitului net'
-      },
-      validation: Validators.compose([Validators.required])
+      className: 'row',
+      fieldGroup: [{
+        className: 'col-xs-12',
+        template: '<p>1. Recalcularea platilor anticipate *)</p>'
+      }, {
+        className: 'col-xs-6',
+        key: 'd_rec1',
+        type: 'multicheckbox',
+        templateOptions: {
+          options: [{
+            key: '1',
+            value: '1.a. Cu titlu de impozit'
+          }, {
+            key: '2',
+            value: '1.b. Cu titlu de contributii sociale'
+          }],
+        },
+        validation: Validators.compose([Validators.required])
+      }, {
+        className: 'col-xs-6',
+        key: 'd_rec2',
+        type: 'checkbox',
+        templateOptions: {
+          label: '2. Modificarea modului de determinare a venitului net'
+        },
+        validation: Validators.compose([Validators.required])
+      }]
     }, {
       key: 'stat_pensie',
-      type: 'input',
+      type: 'select',
       templateOptions: {
         label: '3. Venituri din pensii din strainatate realizate in statul:',
-        type: 'number' // @todo: de facut selector dupa nomenclator tari
+        options: [{
+          label: '00--nicio selectie',
+          value: 0
+        }, {
+          label: 'RO--Romania',
+          value: 642
+        }, {
+          label: 'AF--Afganistan',
+          value: 4
+        }, {
+          label: 'AX--Insulele Aland',
+          value: 248
+        }, {
+          label: 'AL--Albania   ',
+          value: 8
+        }]
       },
       validation: Validators.compose([Validators.required])
     }, {
@@ -220,14 +254,39 @@ export class Form {
       },
       validation: Validators.compose([Validators.maxLength(200)])
     }, {
-      template: '<h4>II. Date privind activitatea desfasurata</h4>'
+      template: '<h4>II. Date privind activitatea desfasurata{{data|json}}</h4>'
     }, {
       key: 'childNodesPre',
       fieldGroup: [{
         key: 'categ_venit',
-        type: 'input',
+        type: 'select',
         templateOptions: {
-          label: 'Categoria de venit'
+          label: 'Categoria de venit',
+          options: [{
+            label: '1.Venituri din activitati de producție, prestari servicii, comert',
+            value: 1
+          }, {
+            label: '2.Venituri din profesii liberale',
+            value: 2
+          }, {
+            label: '3.Venituri din drepturi de proprietate intelectuala',
+            value: 3
+          }, {
+            label: '4.Venituri din activităţi agricole',
+            value: 4
+          }, {
+            label: '5.Venituri din silvicultura',
+            value: 5
+          }, {
+            label: '6.Venituri din piscicultura',
+            value: 6
+          }, {
+            label: '7.Venituri din cedarea folosintei bunurilor',
+            value: 7
+          }, {
+            label: '8.Venituri din pensii din strainatate',
+            value: 8
+          }]
         },
         validation: Validators.compose([Validators.required, Validators.maxLength(1)])
       }, {
@@ -254,18 +313,47 @@ export class Form {
         }
       }, {
         key: 'det_venit',
-        type: 'input',
+        type: 'select',
         templateOptions: {
-          label: '2. Determinarea venitului net'
+          label: '2. Determinarea venitului net',
+          options: [{
+            label: '0-Nu este cazul pentru categ_venit == 8',
+            value: 0
+          }, {
+            label: '1-Sistem real',
+            value: 1
+          }, {
+            label: '2-Cote forfetare de cheltuieli',
+            value: 2
+          }, {
+            label: '3-Norma de venit',
+            value: 3
+          }]
         },
         validation: Validators.compose([Validators.required, Validators.maxLength(1)])
       }, {
         key: 'forma_org',
-        type: 'input',
+        type: 'select',
         templateOptions: {
-          label: '3. Forma de organizare'
+          label: '3. Forma de organizare',
+          options: [{
+            label: '0-Nu este cazul pentru categ_venit == 8',
+            value: 0
+          }, {
+            label: '1-Individual',
+            value: 1
+          }, {
+            label: '2-Asociere fara personalitate juridica',
+            value: 2
+          }, {
+            label: '3-Entitati supuse regimului transparentei fiscale',
+            value: 3
+          }, {
+            label: '4-Modificarea modalitatii/ formei de exercitare a activitatii',
+            value: 4
+          }]
         },
-        validation: Validators.compose([Validators.required, Validators.maxLength(2)])
+        validation: Validators.compose([Validators.required])
       }, {
         key: 'CAEN',
         type: 'input',
@@ -406,5 +494,16 @@ export class Form {
     this.postData = JSON.parse(JSON.stringify(this.data));
     this.postData.childNodes.push(this.postData.childNodesPre);
     delete this.postData.childNodesPre;
+    this.loading = true;
+    this.response = '';
+
+    this.dService.sendData(this.postData).then(response => {
+      this.loading = false;
+      this.response = JSON.parse(response["_body"]);
+
+      if(this.response['fileId'] != '') {
+        this.pdfId = this.response['fileId']
+      }
+    })
   }
 }

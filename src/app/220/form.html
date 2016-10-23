@@ -1,10 +1,17 @@
-<h2>220</h2>
-<h3>Declaratie privind venitul estimat / norma de venit</h3>
+<div class="row centertext">
+    <h2 class="col-xs-12">220</h2>
+    <h3 class="col-xs-12">Declaratie privind venitul estimat / norma de venit</h3>
+</div>
+<hr />
 <div>
-    <formly-form [model]="data" [fields]="fields">
-        <button (click)="postProcess()">PostProcess</button>
-    </formly-form>
+    <formly-form [model]="data" [fields]="fields"></formly-form>
 </div>
 <div>
-    <textarea cols="130" rows="20">{{postData|json}}</textarea>
+    <button (click)="postProcess()" class="btn btn-primary">Generare</button>
+    <a type="submit" *ngIf="pdfId" href="{{dService.theUrl}}/download/{{pdfId}}" class="btn btn-success">Download Pdf</a>
+</div>
+<div class="loading" *ngIf="loading">Loading...</div>
+<div *ngIf="response">
+    <h3>Raspuns:</h3>
+    <pre>{{response|json}}</pre>
 </div>
