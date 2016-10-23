@@ -21,12 +21,12 @@ import {Declaratia310Service} from '../services/declaratieService';
     {
       "nr_pag":1,
       "bazaL":0,
-      "nrOPI":2,
+      "nrOPI":0,
       "bazaP":0,
-      "bazaA":38,
+      "bazaA":0,
       "tagName":"rezumat",
       "bazaT":0,
-      "total_baza":38,
+      "total_baza":0,
       "bazaS":0
     },
     {
@@ -57,8 +57,8 @@ import {Declaratia310Service} from '../services/declaratieService';
   "nume_declar":"Vasile1",
   "d_rec":0
 
-  
-}
+  }
+
 achizitiiBunuriTaxabile = [
     {
       "baza":23,
@@ -74,19 +74,6 @@ achizitiiBunuriTaxabile = [
       "tagName":"operatie",
       "denO":"Gigi SA"
     }]
-
-   calculSumaTotala = {
-      "nr_pag":1,
-      "bazaL":0,
-      "nrOPI":2,
-      "bazaP":0,
-      "bazaA":38,
-      "tagName":"rezumat",
-      "bazaT":0,
-      "total_baza":38,
-      "bazaS":0
-    } 
-
 
   constructor(fb: FormBuilder, private dService: Declaratia310Service) {
     this.form = fb.group({});
@@ -216,25 +203,64 @@ achizitiiBunuriTaxabile = [
     ]
    }
   
-  
+
   postProcess(){
     
+
+   var calculSumaTotala = {
+      "nr_pag":1,
+      "bazaL":0,
+      "nrOPI":0,
+      "bazaP":0,
+      "bazaA":0,
+      "tagName":"rezumat",
+      "bazaT":0,
+      "total_baza":0,
+      "bazaS":0
+    } 
     
+  var count=0;
 
+  for (let node of this.achizitiiBunuriTaxabile)
+  { 
+    count++;  
+    if (node.tip=='S')
+    {
+      calculSumaTotala.bazaS+= +node.baza
+    }
+    if (node.tip=='A')
+    {
+      calculSumaTotala.bazaA+= +node.baza
+    }
+    if (node.tip=='L')
+    {
+      calculSumaTotala.bazaL+= +node.baza
+    }if (node.tip=='P')
+    {
+      calculSumaTotala.bazaP+= +node.baza
+    }if (node.tip=='T')
+    {
+      calculSumaTotala.bazaT+= +node.baza
+    }
+  }
+  calculSumaTotala.nrOPI=count;
+  calculSumaTotala.total_baza=calculSumaTotala.bazaS + calculSumaTotala.bazaA + calculSumaTotala.bazaL + calculSumaTotala.bazaP + calculSumaTotala.bazaT;
+  this.user.childNodes=[];
+  this.user.childNodes.push(calculSumaTotala);
+  this.user.totalPlata_A=calculSumaTotala.nrOPI + calculSumaTotala.total_baza;
 
-  this.user.childNodes=[]
-  this.user.childNodes.push(this.user.calculSumaTotala)
-
-for (let node of this.user.achizitiiBunuriTaxabile)
+for (let node of this.achizitiiBunuriTaxabile)
 {this.user.childNodes.push(node)}
 
 
   this.dService.sendData(this.user).then(response => {
-    
+      console.log("received response");
     this.response = JSON.parse(response["_body"]);
-
-    if(this.response['fileId'] != '') {      
-        this.pdfId = this.response['fileId']
+    if(this.response['fileId'] != '') {
+       this.pdfId = this.response['fileId'];
+       console.log("pdfid set:" + this.pdfId);
+    } else {
+      console.log("no fileid");
     }
   }) 
 
@@ -244,7 +270,7 @@ for (let node of this.user.achizitiiBunuriTaxabile)
       "baza":0,
       "tip":"",
       "tara":"",
-      "tagName":"",
+      "tagName":"operatie",
       "denO":""
     })
 }
