@@ -344,7 +344,7 @@ export class Form {
           type: 'number'
         }
       }, {
-        className: 'col-xs-12',
+        className: 'col-xs-12 col-md-5',
         key: 'det_venit',
         type: 'select',
         templateOptions: {
@@ -365,6 +365,7 @@ export class Form {
         },
         validation: Validators.compose([Validators.required, Validators.maxLength(1)])
       }, {
+        className: 'col-xs-12 col-md-5',
         key: 'forma_org',
         type: 'select',
         templateOptions: {
@@ -388,6 +389,7 @@ export class Form {
         },
         validation: Validators.compose([Validators.required])
       }, {
+        className: 'col-xs-12 col-md-2',
         key: 'CAEN',
         type: 'input',
         templateOptions: {
@@ -395,6 +397,7 @@ export class Form {
         },
         validation: Validators.compose([Validators.maxLength(4)])
       }, {
+        className: 'col-xs-12',
         key: 'sediu',
         type: 'input',
         templateOptions: {
@@ -402,6 +405,7 @@ export class Form {
         },
         validation: Validators.compose([Validators.maxLength(200)])
       }, {
+        className: 'col-xs-12 col-md-4',
         key: 'judet',
         type: 'input',
         templateOptions: {
@@ -410,6 +414,7 @@ export class Form {
         },
         validation: Validators.compose([Validators.maxLength(3)])
       }, {
+        className: 'col-xs-12 col-md-4',
         key: 'localitate',
         type: 'input',
         templateOptions: {
@@ -417,6 +422,7 @@ export class Form {
         },
         validation: Validators.compose([Validators.maxLength(50)])
       }, {
+        className: 'col-xs-12 col-md-4',
         key: 'sector',
         type: 'input',
         templateOptions: {
@@ -425,6 +431,7 @@ export class Form {
         },
         validation: Validators.compose([Validators.maxLength(1)])
       }, {
+        className: 'col-xs-12 col-md-6',
         key: 'tip_doc',
         type: 'input',
         templateOptions: {
@@ -433,6 +440,7 @@ export class Form {
         },
         validation: Validators.compose([Validators.maxLength(3)])
       }, {
+        className: 'col-xs-6 col-md-3',
         key: 'nr_doc',
         type: 'input',
         templateOptions: {
@@ -441,6 +449,7 @@ export class Form {
         },
         validation: Validators.compose([Validators.maxLength(11)])
       }, {
+        className: 'col-xs-6 col-md-3',
         key: 'data_doc',
         type: 'input',
         templateOptions: {
@@ -448,6 +457,7 @@ export class Form {
         },
         validation: Validators.compose([Validators.maxLength(10)])
       }, {
+        className: 'col-xs-4',
         key: 'data_I',
         type: 'input',
         templateOptions: {
@@ -455,6 +465,7 @@ export class Form {
         },
         validation: Validators.compose([Validators.maxLength(10)])
       }, {
+        className: 'col-xs-4',
         key: 'data_F',
         type: 'input',
         templateOptions: {
@@ -462,6 +473,7 @@ export class Form {
         },
         validation: Validators.compose([Validators.maxLength(10)])
       }, {
+        className: 'col-xs-4',
         key: 'data_S',
         type: 'input',
         templateOptions: {
@@ -469,6 +481,7 @@ export class Form {
         },
         validation: Validators.compose([Validators.maxLength(10)])
       }, {
+        className: 'col-xs-6',
         key: 'nr_zile',
         type: 'input',
         templateOptions: {
@@ -477,6 +490,7 @@ export class Form {
         },
         validation: Validators.compose([Validators.maxLength(3)])
       }, {
+        className: 'col-xs-6',
         key: 'data_CAS',
         type: 'input',
         templateOptions: {
@@ -484,8 +498,10 @@ export class Form {
         },
         validation: Validators.compose([Validators.maxLength(10)])
       }, {
-        template: '<h4>III. Date privind venitul estimat</h4>'
+        className: 'col-xs-12',
+        template: '<br /><h4>III. Date privind venitul estimat</h4>'
       }, {
+        className: 'col-xs-4',
         key: 'venit3',
         type: 'input',
         templateOptions: {
@@ -494,6 +510,7 @@ export class Form {
         },
         validation: Validators.compose([Validators.required, Validators.maxLength(15)])
       }, {
+        className: 'col-xs-4',
         key: 'chelt3',
         type: 'input',
         templateOptions: {
@@ -502,6 +519,7 @@ export class Form {
         },
         validation: Validators.compose([Validators.required, Validators.maxLength(15)])
       }, {
+        className: 'col-xs-4',
         key: 'net3',
         type: 'input',
         templateOptions: {
