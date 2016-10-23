@@ -1,6 +1,7 @@
 import {FormBuilder, FormGroup} from "@angular/forms";
 import {FormlyModule, FormlyFieldConfig, FormlyBootstrapModule, Field, FieldWrapper} from '../../formly';
 import {Component} from '@angular/core';
+import {Declaratia310Service} from '../services/declaratieService';
 
 @Component({
   selector: 'd390',
@@ -8,6 +9,8 @@ import {Component} from '@angular/core';
   templateUrl: './form.html'
 })
   export class Form {
+  response:string;
+  pdfId:string;
 
   form: FormGroup;
   userFields: FormlyFieldConfig[];
@@ -53,9 +56,39 @@ import {Component} from '@angular/core';
   "adresa":"Bucuresti Aleea Florilor",
   "nume_declar":"Vasile1",
   "d_rec":0
-}
 
-  constructor(fb: FormBuilder) {
+  
+}
+achizitiiBunuriTaxabile = [
+    {
+      "baza":23,
+      "tip":"A",
+      "tara":"NL",
+      "tagName":"operatie",
+      "denO":"Uber BV"
+    },
+    {
+     "baza":15,
+      "tip":"A",
+      "tara":"DK",
+      "tagName":"operatie",
+      "denO":"Gigi SA"
+    }]
+
+   calculSumaTotala = {
+      "nr_pag":1,
+      "bazaL":0,
+      "nrOPI":2,
+      "bazaP":0,
+      "bazaA":38,
+      "tagName":"rezumat",
+      "bazaT":0,
+      "total_baza":38,
+      "bazaS":0
+    } 
+
+
+  constructor(fb: FormBuilder, private dService: Declaratia310Service) {
     this.form = fb.group({});
 
     this.userFields = [{
@@ -145,87 +178,8 @@ import {Component} from '@angular/core';
     {
       template:"<div><b>II. REZUMAT DECLARATIE</b></div>"
     },
-    {
-      key: 'totalPlata_A',
-      type: 'input',
-      templateOptions: {
-        label: "(suma de control)",
-        placeholder: ""
-      }
 
-    },
-    {
-      key: 'nr_pag',
-      type: 'input',
-      templateOptions: {
-        label: "NUMAR TOTAL PAGINI ANEXA LA DECLARATIE",
-        placeholder: "1"
-      }
-
-    },
-    {
-      key: 'nrOPI',
-      type: 'input',
-      templateOptions: {
-        label: "NUMARUL TOTAL AL OPERATORILOR INTRACOMUNITARI",
-        placeholder: ""
-      }
-
-    },
-    {
-      key: 'sumliv_achi',
-      type: 'input',
-      templateOptions: {
-        label: "SUMA LIVRARILOR / ACHIZIZITIILOR INTRACOMUNITARE",
-        placeholder: ""
-      }
-
-    },
-    {
-      key: 'bazaL',
-      type: 'input',
-      templateOptions: {
-        label: "L-LIVRARI INTRACOMUNITARE DE BUNURI",
-        placeholder: ""
-      }
-
-    },
-    {
-      key: 'bazaT',
-      type: 'input',
-      templateOptions: {
-        label: "T-LIVRARI IN CADRUL UNEI OPERATIUNI TRIUNGHIULARE",
-        placeholder: ""
-      }
-
-    },
-    {
-      key: 'bazaA',
-      type: 'input',
-      templateOptions: {
-        label: "A-ACHIZITII INTRACOMUNITARE DE BUNURI",
-        placeholder: ""
-      }
-
-    },
-     {
-      key: 'bazaP',
-      type: 'input',
-      templateOptions: {
-        label: "P-PRESTARI INTRACOMUNITARE DE SERVICII",
-        placeholder: ""
-      }
-
-    },
-     {
-      key: 'bazaS',
-      type: 'input',
-      templateOptions: {
-        label: "S-ACHIZITII INTRACOMUNITARE DE SERVICII",
-        placeholder: ""
-      }
-
-    },
+    
     {
   template: "<div>Sub sanctiunile aplicate faptei de fals in acte publice, declar ca datele inscrise in acest formular sunt corecte si complete</div>"
     },{
@@ -257,73 +211,41 @@ import {Component} from '@angular/core';
     },
     {
    template:"<div><b>LISTA OPERATIUNILOR INTRACOMUNITARE</B></DIV>"
-    },
-    {
-      key: 'nr_crt',
-      type: 'input',
-      templateOptions: {
-        label: "Nr.crt.",
-        placeholder: "1"
-      }
-
-    },
-    {
-      key: 'tip',
-      type: 'input',
-      templateOptions: {
-        label: "TIP *(L/T/A/P/S)",
-        placeholder: ""
-      }
-
-    },
-    {
-      key: 'tara',
-      type: 'input',
-      templateOptions: {
-        label: "TARA",
-        placeholder: ""
-      }
-
-    },
-    {
-      key: 'codO',
-      type: 'input',
-      templateOptions: {
-        label: "COD OPERATOR INTRACOMUNITAR",
-        placeholder: ""
-      }
-
-    },
-    {
-      key: 'denO',
-      type: 'input',
-      templateOptions: {
-        label: "DENUMIRE/NUME, PRENUME OPERATOR INTRACOMUNITAR",
-        placeholder: "Vasile Popescu"
-      }
-
-    },
-    {
-      key: 'baza',
-      type: 'input',
-      templateOptions: {
-        label: "BAZA IMPOZABILA",
-        placeholder: ""
-      }
-
-    },
-    {
-      key: 'total_baza',
-      type: 'input',
-      templateOptions: {
-        label: "TOTAL GENERAL",
-        placeholder: ""
-      }
     }
    
     ]
+   }
+  
+  
+  postProcess(){
     
-    this.user.totalPlata_A = +this.user.nrOPI + +this.user.bazaL + +this.user.bazaT + +this.user.bazaA + +this.user.bazaP + +this.user.bazaS;
-  }
+    
 
+
+  this.user.childNodes=[]
+  this.user.childNodes.push(this.user.calculSumaTotala)
+
+for (let node of this.user.achizitiiBunuriTaxabile)
+{this.user.childNodes.push(node)}
+
+
+  this.dService.sendData(this.user).then(response => {
+    
+    this.response = JSON.parse(response["_body"]);
+
+    if(this.response['fileId'] != '') {      
+        this.pdfId = this.response['fileId']
+    }
+  }) 
+
+  }
+  addAchizitie() {
+  this.achizitiiBunuriTaxabile.push( {
+      "baza":0,
+      "tip":"",
+      "tara":"",
+      "tagName":"",
+      "denO":""
+    })
+}
 }

@@ -1,4 +1,19 @@
 <h3>390</h3>
         <formly-form [model]="user" [fields]="userFields"></formly-form>
-        <button type="submit" class="btn btn-primary">Button</button>
+        <div *ngFor="let row of achizitiiBunuriTaxabile; let i = index">
+        
+                
+               
+                <input type="text" [value]="achizitiiBunuriTaxabile[i].baza" (input)="achizitiiBunuriTaxabile[i].baza = $event.target.value">
+                <input type="text" [value]="achizitiiBunuriTaxabile[i].tip" (input)="achizitiiBunuriTaxabile[i].tip = $event.target.value">
+                <input type="text" [value]="achizitiiBunuriTaxabile[i].tara" (input)="achizitiiBunuriTaxabile[i].tara = $event.target.value">
+               <!-- <input type="text" [value]="achizitiiBunuriTaxabile[i].tagName" (input)="achizitiiBunuriTaxabile[i].tagName = $event.target.value">-->
+                <input type="text" [value]="achizitiiBunuriTaxabile[i].denO" (input)="achizitiiBunuriTaxabile[i].denO = $event.target.value">
+               
+        </div>
+          <button type="submit" class="btn btn-primary" (click)="addAchizitie()" >Add</button>
+                <div>    <button type="submit" class="btn btn-primary" (click)="postProcess()" >Generare</button></div>
+        <div>
+                 <a type="submit" *ngIf="pdfId" href="{{dService.theUrl}}/download/{{pdfId}}" class="btn btn-primary" >Download Pdf</a>
+            </div>
         {{user|json}}
