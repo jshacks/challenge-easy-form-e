@@ -16,16 +16,14 @@ import {FormlyModule, FormlyFieldConfig, FormlyBootstrapModule, Field, FieldWrap
 
 import {Declaratia310Service} from './services/declaratieService';
 
-import {Form as D112} from './112/form';
 import {Form as D390} from './390/form';
 import {Form as D301} from './301/form';
 import {Form as D220} from './220/form';
 import {Form as D230} from './230/form';
-
+import './assets/styles/main.scss';
 
 @NgModule({
   declarations: [AppComponent, About, RepoBrowser, RepoList, RepoDetail, Home,
-  D112,
   D390,
   D301,
   D220,

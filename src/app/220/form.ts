@@ -14,6 +14,7 @@ export class Form {
 
   response:string;
   pdfId:string;
+  loading: boolean = false;
 
   postData: any = {};
   data: any = {
@@ -76,7 +77,7 @@ export class Form {
         className: 'col-xs-6',
         template: '<h4>Configurari generale</h4>'
       }, {
-        className: 'col-xs-3',
+        className: 'col-xs-3 offset-xs-3',
         key: 'an',
         type: 'input',
         templateOptions: {
@@ -86,26 +87,33 @@ export class Form {
         validation: Validators.compose([Validators.required, Validators.maxLength(4), Validators.minLength(4)])
       }]
     }, {
-      key: 'd_rec1',
-      type: 'multicheckbox',
-      templateOptions: {
-        options: [{
-          key: '1',
-          value: '1.a. Cu titlu de impozit'
-        }, {
-          key: '2',
-          value: '1.b. Cu titlu de contributii sociale'
-        }],
-        label: '1. Recalcularea platilor anticipate *)'
-      },
-      validation: Validators.compose([Validators.required])
-    }, {
-      key: 'd_rec2',
-      type: 'checkbox',
-      templateOptions: {
-        label: '2. Modificarea modului de determinare a venitului net'
-      },
-      validation: Validators.compose([Validators.required])
+      className: 'row',
+      fieldGroup: [{
+        className: 'col-xs-12',
+        template: '<p>1. Recalcularea platilor anticipate *)</p>'
+      }, {
+        className: 'col-xs-6',
+        key: 'd_rec1',
+        type: 'multicheckbox',
+        templateOptions: {
+          options: [{
+            key: '1',
+            value: '1.a. Cu titlu de impozit'
+          }, {
+            key: '2',
+            value: '1.b. Cu titlu de contributii sociale'
+          }],
+        },
+        validation: Validators.compose([Validators.required])
+      }, {
+        className: 'col-xs-6',
+        key: 'd_rec2',
+        type: 'checkbox',
+        templateOptions: {
+          label: '2. Modificarea modului de determinare a venitului net'
+        },
+        validation: Validators.compose([Validators.required])
+      }]
     }, {
       key: 'stat_pensie',
       type: 'select',
@@ -486,9 +494,11 @@ export class Form {
     this.postData = JSON.parse(JSON.stringify(this.data));
     this.postData.childNodes.push(this.postData.childNodesPre);
     delete this.postData.childNodesPre;
+    this.loading = true;
+    this.response = '';
 
     this.dService.sendData(this.postData).then(response => {
-
+      this.loading = false;
       this.response = JSON.parse(response["_body"]);
 
       if(this.response['fileId'] != '') {
