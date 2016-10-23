@@ -1,11 +1,12 @@
 <div class="row centertext">
-    <h2 class="col-xs-12">220</h2>
-    <h3 class="col-xs-12">Declaratie privind venitul estimat / norma de venit</h3>
+    <h1 class="col-xs-12">220</h1>
+    <h2 class="col-xs-12">Declaratie privind venitul estimat / norma de venit</h2>
 </div>
 <hr />
 <div>
     <formly-form [model]="data" [fields]="fields"></formly-form>
 </div>
+<hr />
 <div>
     <button (click)="postProcess()" class="btn btn-primary">Generare</button>
     <a type="submit" *ngIf="pdfId" href="{{dService.theUrl}}/download/{{pdfId}}" class="btn btn-success">Download Pdf</a>

@@ -89,9 +89,6 @@ export class Form {
     }, {
       className: 'row',
       fieldGroup: [{
-        className: 'col-xs-12',
-        template: '<p>1. Recalcularea platilor anticipate *)</p>'
-      }, {
         className: 'col-xs-6',
         key: 'd_rec1',
         type: 'multicheckbox',
@@ -103,6 +100,7 @@ export class Form {
             key: '2',
             value: '1.b. Cu titlu de contributii sociale'
           }],
+          label: '1. Recalcularea platilor anticipate *)'
         },
         validation: Validators.compose([Validators.required])
       }, {
@@ -113,53 +111,61 @@ export class Form {
           label: '2. Modificarea modului de determinare a venitului net'
         },
         validation: Validators.compose([Validators.required])
+      }, {
+        className: 'col-xs-12',
+        key: 'stat_pensie',
+        type: 'select',
+        templateOptions: {
+          label: '3. Venituri din pensii din strainatate realizate in statul:',
+          options: [{
+            label: '00--nicio selectie',
+            value: 0
+          }, {
+            label: 'RO--Romania',
+            value: 642
+          }, {
+            label: 'AF--Afganistan',
+            value: 4
+          }, {
+            label: 'AX--Insulele Aland',
+            value: 248
+          }, {
+            label: 'AL--Albania   ',
+            value: 8
+          }]
+        },
+        validation: Validators.compose([Validators.required])
       }]
     }, {
-      key: 'stat_pensie',
-      type: 'select',
-      templateOptions: {
-        label: '3. Venituri din pensii din strainatate realizate in statul:',
-        options: [{
-          label: '00--nicio selectie',
-          value: 0
-        }, {
-          label: 'RO--Romania',
-          value: 642
-        }, {
-          label: 'AF--Afganistan',
-          value: 4
-        }, {
-          label: 'AX--Insulele Aland',
-          value: 248
-        }, {
-          label: 'AL--Albania   ',
-          value: 8
-        }]
-      },
-      validation: Validators.compose([Validators.required])
-    }, {
-      template: '<h3>Sub sanctiunile aplicate faptei de fals in acte publice, declar ca datele inscrise in acest formular sunt corecte si complete.</h3>'
-    }, {
-      key: 'nume_declar',
-      type: 'input',
-      templateOptions: {
-        label: 'Nume'
-      },
-      validation: Validators.compose([Validators.required, Validators.maxLength(75)])
-    }, {
-      key: 'prenume_declar',
-      type: 'input',
-      templateOptions: {
-        label: 'Prenume'
-      },
-      validation: Validators.compose([Validators.required, Validators.maxLength(75)])
-    }, {
-      key: 'functie_declar',
-      type: 'input',
-      templateOptions: {
-        label: 'Functia'
-      },
-      validation: Validators.compose([Validators.required, Validators.maxLength(50)])
+      className: 'row',
+      fieldGroup: [{
+        className: 'col-xs-12',
+        template: '<h3>Sub sanctiunile aplicate faptei de fals in acte publice, declar ca datele inscrise in acest formular sunt corecte si complete.</h3>'
+      }, {
+        className: 'col-xs-4',
+        key: 'nume_declar',
+        type: 'input',
+        templateOptions: {
+          label: 'Nume'
+        },
+        validation: Validators.compose([Validators.required, Validators.maxLength(75)])
+      }, {
+        className: 'col-xs-4',
+        key: 'prenume_declar',
+        type: 'input',
+        templateOptions: {
+          label: 'Prenume'
+        },
+        validation: Validators.compose([Validators.required, Validators.maxLength(75)])
+      }, {
+        className: 'col-xs-4',
+        key: 'functie_declar',
+        type: 'input',
+        templateOptions: {
+          label: 'Functia'
+        },
+        validation: Validators.compose([Validators.required, Validators.maxLength(50)])
+      }]
     }, {
       template: '<h4>I. Date de identificare a contribuabilului</h4>'
     }, {
