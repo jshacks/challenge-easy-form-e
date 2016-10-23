@@ -67,7 +67,7 @@ export class Form {
       }
     }, {
       className: 'col-xs-12',
-      template :"<div><b> 1.DATE DE IDENTIFICARE A CONTRIBUABILULUI</b></div>"
+      template :"<hr /><div><b> 1.DATE DE IDENTIFICARE A CONTRIBUABILULUI</b></div>"
     }, {
       className: 'col-xs-8 col-md-5',
       key: 'nume_c',
@@ -93,7 +93,7 @@ export class Form {
         placeholder: ""
       }
     }, {
-      className: 'col-xs-12',
+      className: 'col-xs-12 col-md-7',
       key: 'strada_c',
       type: 'input',
       templateOptions: {
@@ -101,7 +101,7 @@ export class Form {
         placeholder: ""
       }
     }, {
-      className: 'col-xs-12',
+      className: 'col-xs-12 col-md-1',
       key: 'numar',
       type: 'input',
       templateOptions: {
@@ -109,7 +109,7 @@ export class Form {
         placeholder: ""
       }
     }, {
-      className: 'col-xs-12',
+      className: 'col-xs-12 col-md-1',
       key: 'bloc',
       type: 'input',
       templateOptions: {
@@ -117,7 +117,7 @@ export class Form {
         placeholder: ""
       }
     }, {
-      className: 'col-xs-12',
+      className: 'col-xs-12 col-md-1',
       key: 'scara',
       type: 'input',
       templateOptions: {
@@ -125,7 +125,7 @@ export class Form {
         placeholder: ""
       }
     }, {
-      className: 'col-xs-12',
+      className: 'col-xs-12 col-md-1',
       key: 'etaj',
       type: 'input',
       templateOptions: {
@@ -133,7 +133,7 @@ export class Form {
         placeholder: ""
       }
     }, {
-      className: 'col-xs-12',
+      className: 'col-xs-12 col-md-1',
       key: 'apar',
       type: 'input',
       templateOptions: {
@@ -141,7 +141,7 @@ export class Form {
         placeholder: ""
       }
     }, {
-      className: 'col-xs-12',
+      className: 'col-xs-12 col-md-4',
       key: 'judSect',
       type: 'input',
       templateOptions: {
@@ -149,7 +149,7 @@ export class Form {
         placeholder: ""
       }
     }, {
-      className: 'col-xs-12',
+      className: 'col-xs-12 col-md-4',
       key: 'local',
       type: 'input',
       templateOptions: {
@@ -157,7 +157,7 @@ export class Form {
         placeholder: ""
       }
     }, {
-      className: 'col-xs-12',
+      className: 'col-xs-12 col-md-4',
       key: 'codp',
       type: 'input',
       templateOptions: {
@@ -165,7 +165,7 @@ export class Form {
         placeholder: ""
       }
     }, {
-      className: 'col-xs-12',
+      className: 'col-xs-12 col-md-6',
       key: 'cif_c',
       type: 'input',
       templateOptions: {
@@ -173,7 +173,7 @@ export class Form {
         placeholder: ""
       }
     }, {
-      className: 'col-xs-12',
+      className: 'col-xs-12 col-md-6',
       key: 'email',
       type: 'input',
       templateOptions: {
@@ -181,7 +181,7 @@ export class Form {
         placeholder: ""
       }
     }, {
-      className: 'col-xs-12',
+      className: 'col-xs-12 col-md-6',
       key: 'telefon_c',
       type: 'input',
       templateOptions: {
@@ -189,7 +189,7 @@ export class Form {
         placeholder: ""
       }   
     }, {
-      className: 'col-xs-12',
+      className: 'col-xs-12 col-md-6',
       key: 'fax',
       type: 'input',
       templateOptions: {
@@ -208,7 +208,7 @@ export class Form {
         placeholder: ""
       }
     }, {
-      className: 'col-xs-12',
+      className: 'col-xs-12 col-md-2',
       key: 'suma_bursa',
       type: 'input',
       templateOptions: {
@@ -216,7 +216,7 @@ export class Form {
         placeholder: ""
       }
     }, {
-      className: 'col-xs-12',
+      className: 'col-xs-12 col-md-5',
       key: 'contract_bursa',
       type: 'input',
       templateOptions: {
@@ -224,7 +224,7 @@ export class Form {
         placeholder: ""
       }
     }, {
-      className: 'col-xs-12',
+      className: 'col-xs-12 col-md-5',
       key: 'doc_plata_bursa',
       type: 'input',
       templateOptions: {
@@ -240,7 +240,7 @@ export class Form {
         placeholder: ""
       }
     }, {
-      className: 'col-xs-12',
+      className: 'col-xs-12 col-md-6',
       key: 'suma_entitate',
       type: 'input',
       templateOptions: {
@@ -248,7 +248,7 @@ export class Form {
         placeholder: ""
       }
     }, {
-      className: 'col-xs-12',
+      className: 'col-xs-12 col-md-6',
       key: 'cont_entitate',
       type: 'input',
       templateOptions: {
@@ -256,7 +256,7 @@ export class Form {
         placeholder: ""
       }
     }, {
-      className: 'col-xs-12',
+      className: 'col-xs-12 col-md-6',
       key: 'den_entitate',
       type: 'input',
       templateOptions: {
@@ -264,7 +264,7 @@ export class Form {
         placeholder: ""
       }
     }, {
-      className: 'col-xs-12',
+      className: 'col-xs-12 col-md-6',
       key: 'cif_entitate',
       type: 'input',
       templateOptions: {
@@ -273,9 +273,9 @@ export class Form {
       }
     }, {
       className: 'col-xs-12',
-      template :"<div><b> 1.DATE DE IDENTIFICARE A IMPUTERNICITULUI</b></div>"
+      template :"<div><b>1.DATE DE IDENTIFICARE A IMPUTERNICITULUI</b></div>"
     }, {
-      className: 'col-xs-12',
+      className: 'col-xs-12 col-md-6',
       key: 'den_i',
       type: 'input',
       templateOptions: {
@@ -283,7 +283,7 @@ export class Form {
         placeholder: ""
       }
     }, {
-      className: 'col-xs-12',
+      className: 'col-xs-12 col-md-6',
       key: 'cif_i',
       type: 'input',
       templateOptions: {
@@ -291,7 +291,7 @@ export class Form {
         placeholder: ""
       }
     }, {
-      className: 'col-xs-12',
+      className: 'col-xs-12 col-md-6',
       key: 'judsecI',
       type: 'input',
       templateOptions: {
@@ -299,7 +299,7 @@ export class Form {
         placeholder: ""
       }
     }, {
-      className: 'col-xs-12',
+      className: 'col-xs-12 col-md-6',
       key: 'locI',
       type: 'input',
       templateOptions: {
@@ -307,7 +307,7 @@ export class Form {
         placeholder: ""
       }
     }, {
-      className: 'col-xs-12',
+      className: 'col-xs-12 col-md-6',
       key: 'strI',
       type: 'input',
       templateOptions: {
@@ -315,7 +315,7 @@ export class Form {
         placeholder: ""
       }
     }, {
-      className: 'col-xs-12',
+      className: 'col-xs-12 col-md-1',
       key: 'nrI',
       type: 'input',
       templateOptions: {
@@ -323,7 +323,7 @@ export class Form {
         placeholder: ""
       }
     }, {
-      className: 'col-xs-12',
+      className: 'col-xs-12 col-md-1',
       key: 'blocI',
       type: 'input',
       templateOptions: {
@@ -331,7 +331,7 @@ export class Form {
         placeholder: ""
       }
     }, {
-      className: 'col-xs-12',
+      className: 'col-xs-12 col-md-1',
       key: 'scaraI',
       type: 'input',
       templateOptions: {
@@ -339,15 +339,15 @@ export class Form {
         placeholder: ""
       }
     }, {
-      className: 'col-xs-12',
+      className: 'col-xs-12 col-md-1',
       key: 'apI',
       type: 'input',
       templateOptions: {
-        label: "Apartament",
+        label: "Ap.",
         placeholder: ""
       }
     }, {
-      className: 'col-xs-12',
+      className: 'col-xs-12 col-md-2',
       key: 'codpI',
       type: 'input',
       templateOptions: {
@@ -355,7 +355,7 @@ export class Form {
         placeholder: ""
       }
     }, {
-      className: 'col-xs-12',
+      className: 'col-xs-12 col-md-4',
       key: 'telefon_i',
       type: 'input',
       templateOptions: {
@@ -363,7 +363,7 @@ export class Form {
         placeholder: ""
       }
     }, {
-      className: 'col-xs-12',
+      className: 'col-xs-12 col-md-4',
       key: 'faxI',
       type: 'input',
       templateOptions: {
@@ -371,7 +371,7 @@ export class Form {
         placeholder: ""
       }
     }, {
-      className: 'col-xs-12',
+      className: 'col-xs-12 col-md-4',
       key: 'emailI',
       type: 'input',
       templateOptions: {

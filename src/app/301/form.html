@@ -5,15 +5,24 @@
 </div>
 <div>
     <formly-form [model]="user" [fields]="userFields" class="row"></formly-form>
+    <div class="col-xs-12 titluri">
+        <div class="col-xs-3 col-md-1">Nr. doc</div>
+        <div class="col-xs-3 col-md-2">Data doc</div>
+        <div class="col-xs-3 col-md-2">Valoare in valuta</div>
+        <div class="col-xs-3 col-md-2">Tip valuta</div>
+        <div class="col-xs-4 col-md-2">Curs de schimb</div>
+        <div class="col-xs-4 col-md-2">Baza de impozitare</div>
+        <div class="col-xs-4 col-md-1">TVA dat.</div>
+    </div>
     <div *ngFor="let row of achizitiiBunuriTaxabile; let i = index" class="row">
-        <div class="col-xs-12">
-            <input class="col-xs-1" type="text" [value]="achizitiiBunuriTaxabile[i].nr_doc" (input)="achizitiiBunuriTaxabile[i].nr_doc = $event.target.value">
-            <input type="text" class="col-xs-2" [value]="achizitiiBunuriTaxabile[i].data_doc" (input)="achizitiiBunuriTaxabile[i].data_doc = $event.target.value">
-            <input type="text" class="col-xs-2" [value]="achizitiiBunuriTaxabile[i].val_valuta" (input)="achizitiiBunuriTaxabile[i].val_valuta = $event.target.value">
-            <input type="text" class="col-xs-2" [value]="achizitiiBunuriTaxabile[i].tip_valuta" (input)="achizitiiBunuriTaxabile[i].tip_valuta = $event.target.value">
-            <input type="text" class="col-xs-2" [value]="achizitiiBunuriTaxabile[i].curs_valutar" (input)="achizitiiBunuriTaxabile[i].curs_valutar = $event.target.value">
-            <input type="text" class="col-xs-2" [value]="achizitiiBunuriTaxabile[i].baza" (input)="achizitiiBunuriTaxabile[i].baza = $event.target.value">
-            <input type="text" class="col-xs-1" [value]="achizitiiBunuriTaxabile[i].tva" (input)="achizitiiBunuriTaxabile[i].tva = $event.target.value">
+        <div class="col-xs-12" style="margin-bottom: 8px">
+            <input class="col-xs-3 col-md-1" type="text" [value]="achizitiiBunuriTaxabile[i].nr_doc" (input)="achizitiiBunuriTaxabile[i].nr_doc = $event.target.value">
+            <input type="text" class="col-xs-3 col-md-2" [value]="achizitiiBunuriTaxabile[i].data_doc" (input)="achizitiiBunuriTaxabile[i].data_doc = $event.target.value">
+            <input type="text" class="col-xs-3 col-md-2" [value]="achizitiiBunuriTaxabile[i].val_valuta" (input)="achizitiiBunuriTaxabile[i].val_valuta = $event.target.value">
+            <input type="text" class="col-xs-3 col-md-2" [value]="achizitiiBunuriTaxabile[i].tip_valuta" (input)="achizitiiBunuriTaxabile[i].tip_valuta = $event.target.value">
+            <input type="text" class="col-xs-4 col-md-2" [value]="achizitiiBunuriTaxabile[i].curs_valutar" (input)="achizitiiBunuriTaxabile[i].curs_valutar = $event.target.value">
+            <input type="text" class="col-xs-4 col-md-2" [value]="achizitiiBunuriTaxabile[i].baza" (input)="achizitiiBunuriTaxabile[i].baza = $event.target.value">
+            <input type="text" class="col-xs-4 col-md-1" [value]="achizitiiBunuriTaxabile[i].tva" (input)="achizitiiBunuriTaxabile[i].tva = $event.target.value">
         </div>
     </div>
     <div class="row">

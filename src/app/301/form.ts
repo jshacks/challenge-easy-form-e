@@ -106,15 +106,15 @@ export class Form {
         this.form = fb.group({});
 
         this.userFields = [{
-            className: 'col-xs-12',
+            className: 'col-xs-5 col-md-3 offset-md-6',
             key: 'luna',
             type: 'input',
             templateOptions: {
-                label: "pentru luna",
+                label: "luna",
                 placeholder: "ex: 1"
             }
         }, {
-            className: 'col-xs-12',
+            className: 'col-xs-5 offset-xs-2 col-md-3 offset-md-0',
             key: 'an',
             type: 'input',
             templateOptions: {
@@ -155,7 +155,7 @@ export class Form {
             className: 'col-xs-12',
             template: "<div><strong> DATELE DE IDENTIFICARE A PERSOANEI IMPOZABILE</div>"
         }, {
-            className: 'col-xs-12',
+            className: 'col-xs-12 col-md-6',
             key: 'cif',
             type: 'input',
             templateOptions: {
@@ -163,7 +163,7 @@ export class Form {
                 placeholder: ""
             }
         }, {
-            className: 'col-xs-12',
+            className: 'col-xs-12 col-md-6',
             key: 'denumire',
             type: 'input',
             templateOptions: {
@@ -182,7 +182,7 @@ export class Form {
                 placeholder: ""
             }
         }, {
-            className: 'col-xs-12',
+            className: 'col-xs-12 col-md-4',
             key: 'telefon',
             type: 'input',
             templateOptions: {
@@ -190,7 +190,7 @@ export class Form {
                 placeholder: ""
             }
         }, {
-            className: 'col-xs-12',
+            className: 'col-xs-12 col-md-4',
             key: 'fax',
             type: 'input',
             templateOptions: {
@@ -198,7 +198,7 @@ export class Form {
                 placeholder: ""
             }
         }, {
-            className: 'col-xs-12',
+            className: 'col-xs-12 col-md-4',
             key: 'email',
             type: 'input',
             templateOptions: {
@@ -206,7 +206,7 @@ export class Form {
                 placeholder: ""
             }
         }, {
-            className: 'col-xs-12',
+            className: 'col-xs-12 col-md-6',
             key: 'banca',
             type: 'input',
             templateOptions: {
@@ -214,7 +214,7 @@ export class Form {
                 placeholder: ""
             }
         }, {
-            className: 'col-xs-12',
+            className: 'col-xs-12 col-md-6',
             key: 'cont',
             type: 'input',
             templateOptions: {
@@ -239,7 +239,7 @@ export class Form {
             className: 'col-xs-12',
             template: "<div> Prezenta delcaratie constituie titlul de creanta si produce efecte juridice...</div>"
         }, {
-            className: 'col-xs-12',
+            className: 'col-xs-12 col-md-4',
             key: 'nume_declarant',
             type: 'input',
             templateOptions: {
@@ -247,7 +247,7 @@ export class Form {
                 placeholder: ""
             }
         }, {
-            className: 'col-xs-12',
+            className: 'col-xs-12 col-md-4',
             key: 'prenume_declarant',
             type: 'input',
             templateOptions: {
@@ -255,7 +255,7 @@ export class Form {
                 placeholder: ""
             }
         }, {
-            className: 'col-xs-12',
+            className: 'col-xs-12 col-md-4',
             key: 'functia_declarant',
             type: 'input',
             templateOptions: {
