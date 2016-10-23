@@ -50,10 +50,7 @@ export class Form {
     this.form = fb.group({});
 
     this.userFields = [{
-      className: 'col-xs-12',
-      template: "<div><b> CERERE PRIVIND DESTINATIA SUMEI REPREZENTAND PANA LA 2% DIN IMPOZITUL ANUAL PE VENITURILE DIN SALARII SI ASIMILATE SALARIILOR</b></div>"
-    }, {
-      className: 'col-xs-12',
+      className: 'col-xs-5 col-md-3',
       key: 'an',
       type: 'input',
       templateOptions: {
@@ -61,7 +58,7 @@ export class Form {
         placeholder: "2016"
       }
     }, {
-      className: 'col-xs-12',
+      className: 'col-xs-5 offset-xs-2 col-md-3 offset-md-6',
       key: 'totalPlata_A',
       type: 'input',
       templateOptions: {
@@ -72,7 +69,7 @@ export class Form {
       className: 'col-xs-12',
       template :"<div><b> 1.DATE DE IDENTIFICARE A CONTRIBUABILULUI</b></div>"
     }, {
-      className: 'col-xs-12',
+      className: 'col-xs-8 col-md-5',
       key: 'nume_c',
       type: 'input',
       templateOptions: {
@@ -80,7 +77,7 @@ export class Form {
         placeholder: ""
       }
     }, {
-      className: 'col-xs-12',
+      className: 'col-xs-4 col-md-2',
       key: 'initiala_c',
       type: 'input',
       templateOptions: {
@@ -88,7 +85,7 @@ export class Form {
         placeholder: ""
       }
     }, {
-      className: 'col-xs-12',
+      className: 'col-xs-12 col-md-5',
       key: 'prenume_c',
       type: 'input',
       templateOptions: {
