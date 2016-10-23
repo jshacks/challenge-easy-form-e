@@ -322,18 +322,7 @@ import {Component} from '@angular/core';
     }
    
     ]
-    var count = 0;
-    for(var i = 0; i < this.user.nrOPI; ++i)
-    {  count++;
-        this.user.nrOPI=count;
-    }
-    var total = 0;
-    for (i=0; i<this.user.bazaL; i++)
-     {
-    total += this.user.bazaL[i];
-    this.user.bazaL=total;
-     }
-
+    
     this.user.totalPlata_A = +this.user.nrOPI + +this.user.bazaL + +this.user.bazaT + +this.user.bazaA + +this.user.bazaP + +this.user.bazaS;
   }
 

@@ -336,7 +336,17 @@ postProcess() {
 }
 
 addAchizitie() {
-  this.achizitiiBunuriTaxabile.push({})
+  this.achizitiiBunuriTaxabile.push(  {
+      "val_valuta": 0,
+      "data_doc": "",
+      "nr_doc": 0,
+      "tip_valuta": "",
+      "baza": 0,
+      "tagName": "",
+      "tip_operatie": 1,
+      "curs_valutar":0 ,
+      "tva": 0
+    })
 }
 
 }
