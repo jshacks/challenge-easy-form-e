@@ -49,9 +49,11 @@ export class Form {
       'det_venit': 1, // n1 da
       'forma_org': 2, // n1 da
       'CAEN': 6202, // c4
-      'judet': '03', // n2
+      'judet': '03', // n2 . select
       'localitate': 'PITESTI', // c50
       'sediu': 'Aleea Cucului', // c200
+      // 'sector' : 1, // select
+      // 'tip_doc' : 1, // select
       'data_I': '12.10.2016', // d10
       'data_F': '22.10.2016', // d10
       'nr_zile': 4, // n3
@@ -97,10 +99,25 @@ export class Form {
       validation: Validators.compose([Validators.required])
     }, {
       key: 'stat_pensie',
-      type: 'input',
+      type: 'select',
       templateOptions: {
         label: '3. Venituri din pensii din strainatate realizate in statul:',
-        type: 'number' // @todo: de facut selector dupa nomenclator tari
+        options: [{
+          label: '00--nicio selectie',
+          value: 0
+        }, {
+          label: 'RO--Romania',
+          value: 642
+        }, {
+          label: 'AF--Afganistan',
+          value: 4
+        }, {
+          label: 'AX--Insulele Aland',
+          value: 248
+        }, {
+          label: 'AL--Albania   ',
+          value: 8
+        }]
       },
       validation: Validators.compose([Validators.required])
     }, {
@@ -220,14 +237,39 @@ export class Form {
       },
       validation: Validators.compose([Validators.maxLength(200)])
     }, {
-      template: '<h4>II. Date privind activitatea desfasurata</h4>'
+      template: '<h4>II. Date privind activitatea desfasurata{{data|json}}</h4>'
     }, {
       key: 'childNodesPre',
       fieldGroup: [{
         key: 'categ_venit',
-        type: 'input',
+        type: 'select',
         templateOptions: {
-          label: 'Categoria de venit'
+          label: 'Categoria de venit',
+          options: [{
+            label: '1.Venituri din activitati de producție, prestari servicii, comert',
+            value: 1
+          }, {
+            label: '2.Venituri din profesii liberale',
+            value: 2
+          }, {
+            label: '3.Venituri din drepturi de proprietate intelectuala',
+            value: 3
+          }, {
+            label: '4.Venituri din activităţi agricole',
+            value: 4
+          }, {
+            label: '5.Venituri din silvicultura',
+            value: 5
+          }, {
+            label: '6.Venituri din piscicultura',
+            value: 6
+          }, {
+            label: '7.Venituri din cedarea folosintei bunurilor',
+            value: 7
+          }, {
+            label: '8.Venituri din pensii din strainatate',
+            value: 8
+          }]
         },
         validation: Validators.compose([Validators.required, Validators.maxLength(1)])
       }, {
@@ -254,18 +296,47 @@ export class Form {
         }
       }, {
         key: 'det_venit',
-        type: 'input',
+        type: 'select',
         templateOptions: {
-          label: '2. Determinarea venitului net'
+          label: '2. Determinarea venitului net',
+          options: [{
+            label: '0-Nu este cazul pentru categ_venit == 8',
+            value: 0
+          }, {
+            label: '1-Sistem real',
+            value: 1
+          }, {
+            label: '2-Cote forfetare de cheltuieli',
+            value: 2
+          }, {
+            label: '3-Norma de venit',
+            value: 3
+          }]
         },
         validation: Validators.compose([Validators.required, Validators.maxLength(1)])
       }, {
         key: 'forma_org',
-        type: 'input',
+        type: 'select',
         templateOptions: {
-          label: '3. Forma de organizare'
+          label: '3. Forma de organizare',
+          options: [{
+            label: '0-Nu este cazul pentru categ_venit == 8',
+            value: 0
+          }, {
+            label: '1-Individual',
+            value: 1
+          }, {
+            label: '2-Asociere fara personalitate juridica',
+            value: 2
+          }, {
+            label: '3-Entitati supuse regimului transparentei fiscale',
+            value: 3
+          }, {
+            label: '4-Modificarea modalitatii/ formei de exercitare a activitatii',
+            value: 4
+          }]
         },
-        validation: Validators.compose([Validators.required, Validators.maxLength(2)])
+        validation: Validators.compose([Validators.required])
       }, {
         key: 'CAEN',
         type: 'input',
