@@ -284,8 +284,10 @@ export class Form {
       className: 'row',
       template: '<h4 class="col-xs-12">II. Date privind activitatea desfasurata{{data|json}}</h4>'
     }, {
+      className: 'row',
       key: 'childNodesPre',
       fieldGroup: [{
+        className: 'col-xs-12 col-md-6',
         key: 'categ_venit',
         type: 'select',
         templateOptions: {
@@ -318,6 +320,7 @@ export class Form {
         },
         validation: Validators.compose([Validators.required, Validators.maxLength(1)])
       }, {
+        className: 'col-xs-8 col-md-4',
         key: 'contracte',
         type: 'radio',
         templateOptions: {
@@ -333,6 +336,7 @@ export class Form {
           }]
         }
       }, {
+        className: 'col-xs-4 col-md-2',
         key: 'nr_camere',
         type: 'input',
         templateOptions: {
@@ -340,6 +344,7 @@ export class Form {
           type: 'number'
         }
       }, {
+        className: 'col-xs-12',
         key: 'det_venit',
         type: 'select',
         templateOptions: {
