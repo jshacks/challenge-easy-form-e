@@ -1,5 +1,7 @@
 # Easy form-e
 
+This project is mantained by [Incremental Community](http://incremental.community) and [JsHacks](http://jshacks.io). The aim is to ease the form filling for romanian agencies from any device without additional software.
+
 [![Travis Build Status](https://travis-ci.org/jshacks/boilerplate.svg?branch=master)](https://travis-ci.org/jshacks/boilerplate)
 [![devDependency Status](https://david-dm.org/jshacks/boilerplate/dev-status.svg)](https://david-dm.org/jshacks/boilerplate?type=dev)
 [![Join the Electron Community on Slack](http://159.203.166.178/badge.svg)](http://159.203.166.178)
