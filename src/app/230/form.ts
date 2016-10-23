@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
 import {FormBuilder, FormGroup} from "@angular/forms";
 import {FormlyModule, FormlyFieldConfig, FormlyBootstrapModule, Field, FieldWrapper} from '../../formly';
+import {Declaratia310Service} from '../services/declaratieService';
 
 @Component({
   selector: 'd112',
@@ -8,6 +9,11 @@ import {FormlyModule, FormlyFieldConfig, FormlyBootstrapModule, Field, FieldWrap
   templateUrl: './form.html'
 })
 export class Form {
+
+
+  response:string;
+  pdfId:string;
+
 
   form: FormGroup;
   userFields: FormlyFieldConfig[];
@@ -40,7 +46,7 @@ export class Form {
   "cont_entitate": "RO91BACX0000001166520000"
 }
 
-  constructor(fb: FormBuilder) {
+  constructor(fb: FormBuilder, private dService: Declaratia310Service) {
     this.form = fb.group({});
 
     this.userFields = [
@@ -393,7 +399,7 @@ export class Form {
     ]
   }
 
-  validare() {
+  validare () {
     let adresa = `strada ${this.user.strada_c} nr. ${this.user.numar} bl. ${this.user.bloc} sc. ${this.user.scara} et. ${this.user.etaj} ap. ${this.user.apar} jud. ${this.user.judSect} localit. ${this.user.local} cod postal ${this.user.codp}`;
     
     this.user.adresa_c = adresa;
@@ -422,6 +428,14 @@ export class Form {
 
     this.user.totalPlata_A = +this.user.suma_bursa + +this.user.suma_entitate;
 
-  }
+
+    this.dService.sendData(this.user).then(response => {
+    
+    this.response = JSON.parse(response["_body"]);
+
+    if(this.response['fileId'] != '') {      
+        this.pdfId = this.response['fileId']
+    }
 
 }
+

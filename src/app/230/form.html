@@ -2,5 +2,10 @@
         
         <formly-form [model]="user" [fields]="userFields"></formly-form>
         <button (click)="validare()" class="btn btn-success">Validare</button>
-        {{user|json}}
+
+         <div>    <button type="submit" class="btn btn-primary" (click)="postProcess()" >Generare</button></div>
+        <div>
+                 <a type="submit" *ngIf="pdfId" href="{{dService.theUrl}}/download/{{pdfId}}" class="btn btn-primary" >Download Pdf</a>
+            </div>
+        
 
