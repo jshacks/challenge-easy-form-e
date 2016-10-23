@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {FormlyModule, FormlyFieldConfig, FormlyBootstrapModule, Field, FieldWrapper} from '../../formly';
+import {Declaratia310Service} from '../services/declaratieService';
 
 @Component({
   selector: 'd220',
@@ -10,6 +11,9 @@ import {FormlyModule, FormlyFieldConfig, FormlyBootstrapModule, Field, FieldWrap
 export class Form {
   group: FormGroup;
   fields: FormlyFieldConfig[];
+
+  response:string;
+  pdfId:string;
 
   postData: any = {};
   data: any = {
@@ -64,7 +68,7 @@ export class Form {
     },
     'childNodes': [] // de adaugat childNodesPre
   };
-  constructor(fb: FormBuilder) {
+  constructor(fb: FormBuilder, private dService: Declaratia310Service) {
     this.group = fb.group({});
     this.fields = [{
       template: '<h4>Configurari generale</h4>'
@@ -477,5 +481,14 @@ export class Form {
     this.postData = JSON.parse(JSON.stringify(this.data));
     this.postData.childNodes.push(this.postData.childNodesPre);
     delete this.postData.childNodesPre;
+
+    this.dService.sendData(this.postData).then(response => {
+
+      this.response = JSON.parse(response["_body"]);
+
+      if(this.response['fileId'] != '') {
+        this.pdfId = this.response['fileId']
+      }
+    })
   }
 }
