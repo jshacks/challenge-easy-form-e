@@ -71,15 +71,20 @@ export class Form {
   constructor(fb: FormBuilder, private dService: Declaratia310Service) {
     this.group = fb.group({});
     this.fields = [{
-      template: '<h4>Configurari generale</h4>'
-    }, {
-      key: 'an',
-      type: 'input',
-      templateOptions: {
-        label: 'Anul',
-        type: 'number'
-      },
-      validation: Validators.compose([Validators.required, Validators.maxLength(4), Validators.minLength(4)])
+      className: 'row',
+      fieldGroup: [{
+        className: 'col-xs-6',
+        template: '<h4>Configurari generale</h4>'
+      }, {
+        className: 'col-xs-3',
+        key: 'an',
+        type: 'input',
+        templateOptions: {
+          label: 'Anul',
+          type: 'number'
+        },
+        validation: Validators.compose([Validators.required, Validators.maxLength(4), Validators.minLength(4)])
+      }]
     }, {
       key: 'd_rec1',
       type: 'multicheckbox',
