@@ -1,26 +1,38 @@
-
-<h1>Decont special</h1>
-        <formly-form [model]="user" [fields]="userFields"></formly-form>
-        
-        <div *ngFor="let row of achizitiiBunuriTaxabile; let i = index">
-        
-                
-               
-                <input type="text" [value]="achizitiiBunuriTaxabile[i].nr_doc" (input)="achizitiiBunuriTaxabile[i].nr_doc = $event.target.value">
-                <input type="text" [value]="achizitiiBunuriTaxabile[i].data_doc" (input)="achizitiiBunuriTaxabile[i].data_doc = $event.target.value">
-                <input type="text" [value]="achizitiiBunuriTaxabile[i].val_valuta" (input)="achizitiiBunuriTaxabile[i].val_valuta = $event.target.value">
-                <input type="text" [value]="achizitiiBunuriTaxabile[i].tip_valuta" (input)="achizitiiBunuriTaxabile[i].tip_valuta = $event.target.value">
-                <input type="text" [value]="achizitiiBunuriTaxabile[i].curs_valutar" (input)="achizitiiBunuriTaxabile[i].curs_valutar = $event.target.value">
-                <input type="text" [value]="achizitiiBunuriTaxabile[i].baza" (input)="achizitiiBunuriTaxabile[i].baza = $event.target.value">
-                <input type="text" [value]="achizitiiBunuriTaxabile[i].tva" (input)="achizitiiBunuriTaxabile[i].tva = $event.target.value">
-
+<div class="row centertext">
+    <h1 class="col-xs-12">301</h1>
+    <h2 class="col-xs-12">Decont special</h2>
+    <hr />
+</div>
+<div>
+    <formly-form [model]="user" [fields]="userFields" class="row"></formly-form>
+    <div *ngFor="let row of achizitiiBunuriTaxabile; let i = index" class="row">
+        <div class="col-xs-12">
+            <input class="col-xs-1" type="text" [value]="achizitiiBunuriTaxabile[i].nr_doc" (input)="achizitiiBunuriTaxabile[i].nr_doc = $event.target.value">
+            <input type="text" class="col-xs-2" [value]="achizitiiBunuriTaxabile[i].data_doc" (input)="achizitiiBunuriTaxabile[i].data_doc = $event.target.value">
+            <input type="text" class="col-xs-2" [value]="achizitiiBunuriTaxabile[i].val_valuta" (input)="achizitiiBunuriTaxabile[i].val_valuta = $event.target.value">
+            <input type="text" class="col-xs-2" [value]="achizitiiBunuriTaxabile[i].tip_valuta" (input)="achizitiiBunuriTaxabile[i].tip_valuta = $event.target.value">
+            <input type="text" class="col-xs-2" [value]="achizitiiBunuriTaxabile[i].curs_valutar" (input)="achizitiiBunuriTaxabile[i].curs_valutar = $event.target.value">
+            <input type="text" class="col-xs-2" [value]="achizitiiBunuriTaxabile[i].baza" (input)="achizitiiBunuriTaxabile[i].baza = $event.target.value">
+            <input type="text" class="col-xs-1" [value]="achizitiiBunuriTaxabile[i].tva" (input)="achizitiiBunuriTaxabile[i].tva = $event.target.value">
         </div>
-          <button type="submit" class="btn btn-primary" (click)="addAchizitie()" >Add</button>
-                <div>    <button type="submit" class="btn btn-primary" (click)="postProcess()" >Generare</button></div>
-        <div>
-                 <a type="submit" *ngIf="pdfId" href="{{dService.theUrl}}/download/{{pdfId}}" class="btn btn-primary" >Download Pdf</a>
-            </div>
-
-        {{response | json}}
-
-        <!--{{user|json}}-->
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <button type="submit" class="btn btn-primary alignright" (click)="addAchizitie()" >Adauga achizitie</button>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <hr />
+    <div class="col-xs-12">
+        <button (click)="postProcess()" class="btn btn-primary">{{butonGenerare}}</button>
+        <form style="display: inline" action="{{dService.theUrl}}/download/{{pdfId}}" method="get">
+            <button type="submit" class="btn btn-success" [disabled]="!pdfId">Descarca PDF</button>
+        </form>
+    </div>
+    <div class="loading col-xs-12" *ngIf="loading">Se incarca...</div>
+    <div *ngIf="response" class="col-xs-12">
+        <h3>Raspuns:</h3>
+        <pre>{{response|json}}</pre>
+    </div>
+</div>
