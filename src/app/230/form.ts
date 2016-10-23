@@ -17,6 +17,7 @@ export class Form {
 
   form: FormGroup;
   userFields: FormlyFieldConfig[];
+
   user: any = {
   "cif_c": 2970714332237,
   "adresa_i": "strada Exercitiu nr. 21 bl. B1 sc. B ap. 3 jud. Arges localit. Pitesti cod postal 1122345",
@@ -431,11 +432,13 @@ export class Form {
 
     this.dService.sendData(this.user).then(response => {
     
-    this.response = JSON.parse(response["_body"]);
+      this.response = JSON.parse(response["_body"]);
 
-    if(this.response['fileId'] != '') {      
-        this.pdfId = this.response['fileId']
-    }
+      if(this.response['fileId'] != '') {
+          this.pdfId = this.response['fileId']
+      }
 
+    })
+  }
 }
 
